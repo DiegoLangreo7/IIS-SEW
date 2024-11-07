@@ -1,0 +1,15 @@
+/* Diego García González UO294255 */
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column; /* Especificidad: 0-0-2 */
+    }
+
+    header nav a {
+        margin: 0.5em 0; /* Especificidad: 0-0-3 */
+    }
+
+    p.breadcrumbs {
+        display: none; /* Especificidad: 0-1-1 */
+    }
+}
