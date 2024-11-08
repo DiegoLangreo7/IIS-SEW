@@ -15,7 +15,6 @@
     <script src="js/fondo.js"></script>
 </head>
 <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
         <h1>F1 Desktop</h1>
         <nav> 
@@ -30,13 +29,16 @@
         </nav>
     </header>
     <main>
-        <h2>Bienvenido a F1 Desktop</h2>
-        <p>Tu fuente de información sobre la Fórmula 1. Explora los pilotos, las noticias, el calendario de carreras y mucho más.</p>
+        <figure id="imagen-circuito">
+            <img src="multimedia/imagenes/Monza.png" alt="Circuito de F1" />
+        </figure>
     </main>
 
     <script>
-            const fondo = new Fondo();
+        $(document).ready(function() {
+            const fondo = new Fondo("Italia", "Roma", "Monza");
+            fondo.obtenerImagenFlickr();  
+        });
     </script>
-    
 </body>
 </html>

@@ -1,5 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
+/* Diego García González UO294255 */
+
+main body {
+    font-family: Verdana, sans-serif; 
     flex-direction: column;
     align-items: center;
     background-color: #f0f0f0;
@@ -8,57 +10,49 @@ body {
     height: 100vh; 
 }
 
-header {
+main section {
+    background-color:  #006400;
+}
+
+main h1{
+    margin-top: 0rem;
     text-align: center;
-    padding-top: 1rem; 
-    padding-bottom: 1rem; 
-    background-color: #B30600; 
     color: #FFFFFF;
 }
 
-h2{
-    color: #D4AF37
-}
-
-header nav {
+main nav {
     display: flex; 
     justify-content: center; 
 }
 
-header nav a {
+main nav a {
     color: #FFFFFF; 
+    background-color:  #006400;
     margin: 0 1em; 
     text-decoration: none; 
 }
 
-header nav a.active {
+main nav a.active {
     color: #FFFFFF; 
     font-weight: bold; 
     text-decoration: underline;
 }
 
-header nav a:hover {
-    background-color: #A30500; 
+main nav a:hover {
+    background-color: #004F3C; 
 }
 
-.memory-game {
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem; 
-
+    padding-top: 0rem; 
+    /* Bordado */ 
     border: 0.3em solid #D4AF37;
-
-    /* Fondo verde y textura de fieltro */
-    background: #006400; /* Fondo verde oscuro, como el de un tapete de póker */
-    background-image: 
-        radial-gradient(circle, rgba(0, 100, 0, 0.5) 20%, transparent 20%), 
-        radial-gradient(circle, rgba(0, 100, 0, 0.2) 30%, transparent 30%); /* Textura de fieltro */
-
-    background-size: 2rem 2rem, 3rem 3rem; /* Tamaño de la textura de fieltro */
-    background-position: 0 0, 1.5rem 1.5rem; /* Posicionamiento de las texturas */
-    
-    padding: 1rem; /* Espaciado interno */
+    border-radius: 0.3em;
+    /* Tapete */
+    background: #006400; 
+    padding: 1rem; 
 }
 
 .memory-cards {
@@ -71,7 +65,7 @@ header nav a:hover {
 
 
 
-article {
+main article {
     width: 20vw; 
     height: 25vh; 
     position: relative;
@@ -81,8 +75,8 @@ article {
     box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3); 
 }
 
-article h3,
-article img {
+main article h3,
+main article img {
     margin: 0;
     width: 100%;
     height: 100%;
@@ -95,6 +89,7 @@ article img {
     color: #ffffff;
     
     background-color: #b22222; 
+    
     background-image:
         linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0.15)),
         linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0.15));
@@ -104,16 +99,12 @@ article img {
     border: 2px solid #8b0000; 
 }
 
-
-article img {
+main article img {
     transform: rotateY(180deg);
     border-radius: 0.5rem;
 }
 
-article[data-state="flip"] {
+main article[data-state="flip"],article[data-state="revealed"] {
     transform: rotateY(180deg);
-}
-
-article[data-state="revealed"] {
-    transform: rotateY(180deg);
+    border-radius: 0.5rem;
 }

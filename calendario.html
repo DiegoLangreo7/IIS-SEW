@@ -11,9 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="estilo.css" />
     <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="agenda_grid.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/agenda.js"></script>
 </head>	
 <body>
-    <!-- Datos con el contenido que aparece en el navegador -->
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav> 
@@ -32,7 +34,17 @@
             Estás en: <a href="index.html">Inicio</a> >>> Calendario
         </p>
         <h2>Calendario de carreras</h2>
-        <p>En desarrollo...</p>
+            <button id="btn-obtener-carreras">Obtener Carreras</button>
+
+        <section id="carreras"></section> 
+
+        <script>
+            const agenda = new Agenda();
+            $("#btn-obtener-carreras").click(function() {
+                agenda.obtenerCarreras();  
+            });
+        </script>
+
     </main>
 </body>
 </html>

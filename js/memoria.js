@@ -33,7 +33,7 @@ class Memoria {
             const card = document.createElement('article');
             card.setAttribute('data-element', element);
             card.innerHTML = `
-                <h3>Tarjeta de memoria</h3>
+                <h3>Memory Card</h3>
                 <img src="${src}" alt="${element}">
             `;
             memoryCardsContainer.appendChild(card);

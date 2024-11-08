@@ -6,21 +6,32 @@
     <meta name="description" content="Juego de tiempo de reacción de F1">
     <meta name="keywords" content="html, css, javascript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction - Juego de tiempo de reacción</title>
+    <title>Semáforo F1 - Juego de Reacción</title>    
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="stylesheet" href="semaforo_grid.css">
 </head>
 <body>
     <header>
-        <h1>Juego de tiempo de reacción</h1>
-        <nav>
-            <a href="juegos.html" class="active">Volver</a>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav> 
+            <a href="index.html">Inicio</a>
+            <a href="piloto.html">Pilotos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="metereologia.html">Meteorología</a>
+            <a href="circuito.html">Circuitos</a>
+            <a href="viajes.html">Viajes</a>
+            <a href="juegos.html" class="active">Juegos</a>
         </nav>
     </header>
-
-    <section class="memory-game">
-        <div class="memory-cards"></div>
-    </section>
-
+    <main class="grid">
+        <!-- Aquí es donde se generarán los elementos dinámicamente -->
+    </main>
     <script src="js/semaforo.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const semaforo = new Semaforo();
+        });
+    </script>
 </body>
-</html>

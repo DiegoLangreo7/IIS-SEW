@@ -7,21 +7,31 @@
     <meta name="keywords" content="html, css, javascript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory - Juego de Memoria</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="stylesheet" href="memoria.css">
 </head>
 <body>
     <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav> 
+            <a href="index.html">Inicio</a>
+            <a href="piloto.html">Pilotos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="metereologia.html">Meteorología</a>
+            <a href="circuito.html">Circuitos</a>
+            <a href="viajes.html">Viajes</a>
+            <a href="juegos.html" class="active">Juegos</a>
+        </nav>
+    </header>
+    <main>
         <h1>Juego de Memoria</h1>
         <nav>
             <a href="juegos.html" class="active">Volver</a>
         </nav>
-    </header>
-
-    <section class="memory-game">
-        <h2>Tablero del Juego</h2>
         <section class="memory-cards"></section>
-    </section>
-
+    </main>
     <script src="js/memoria.js"></script>
 </body>
 </html>
