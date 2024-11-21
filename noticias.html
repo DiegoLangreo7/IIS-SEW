@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-    <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>F1 Desktop - Noticias</title>
     <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
@@ -9,11 +8,13 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" type="text/css" href="layout.css" />
-</head>	
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/article_element.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/noticias.js"></script>
+</head>    
 <body>
-    <!-- Datos con el contenido que aparece en el navegador -->
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
         <nav> 
@@ -31,8 +32,13 @@
         <p>
             Estás en: <a href="index.html">Inicio</a> >>> Noticias
         </p>
-        <h2>Noticias de la F1</h2>
-        <p>En desarrollo...</p>
+
+        <section> 
+            <h2>Noticias</h2>
+            <input type="file" onchange="noticia.readInputFile(this.files);">
+        </section>
+
+        
     </main>
 </body>
 </html>

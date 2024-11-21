@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-    <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>F1 Desktop - Viajes</title>
     <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
@@ -9,8 +8,12 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU"></script>
+    <script src="js/viajes.js"></script>
+
 </head>	
 <body>
     <header>
@@ -31,8 +34,15 @@
         <p>
             Estás en: <a href="index.html">Inicio</a> >>> Viajes
         </p>
+
         <h2>Viajes</h2>
-        <p>En desarrollo...</p>
+
+        <section>
+            <h3>Ubicacion actual</h3>
+            <button onclick="geolocalizacion.generateStaticMap()">Obtener mapa estatico</button>
+            <button onclick="geolocalizacion.generateDynamicMap()">Obtener mapa dinamico</button>
+        </section>
+
     </main>
 </body>
 </html>

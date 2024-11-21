@@ -20,7 +20,7 @@ class Memoria {
     }
 
     createElements() {
-        const memoryCardsContainer = document.querySelector('.memory-cards');
+        const memoryCardsContainer = document.querySelector('section');
 
         const elementsArray = Object.entries(this.elements).flatMap(([element, src]) => [
             { element, src },
@@ -33,7 +33,7 @@ class Memoria {
             const card = document.createElement('article');
             card.setAttribute('data-element', element);
             card.innerHTML = `
-                <h3>Memory Card</h3>
+                <h4>Memory Card</h4>
                 <img src="${src}" alt="${element}">
             `;
             memoryCardsContainer.appendChild(card);

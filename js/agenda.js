@@ -15,7 +15,9 @@ class Agenda {
     }
 
     mostrarCarreras(data) {
-        $("#carreras").empty();
+        $("section").empty();
+        $("section").append(`<h2>Calendario de carreras</h2>`);
+        $("section").append(`<button>Obtener Carreras</button>`);
         
         const carreras = data.MRData.RaceTable.Races;
 
@@ -34,7 +36,7 @@ class Agenda {
                     <p><strong>Fecha y hora:</strong> ${fecha}</p>
                 </article>
             `;
-            $("#carreras").append(carreraHTML);
+            $("section").append(carreraHTML);
         });
     }
 }

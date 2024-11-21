@@ -9,9 +9,9 @@
     <meta name="description" content="Documento para utilizar en otros módulos de la asignatura" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" type="text/css" href="layout.css" />
-    <link rel="stylesheet" type="text/css" href="agenda_grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/agenda_grid.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/agenda.js"></script>
 </head>	
@@ -33,14 +33,17 @@
         <p>
             Estás en: <a href="index.html">Inicio</a> >>> Calendario
         </p>
-        <h2>Calendario de carreras</h2>
-            <button id="btn-obtener-carreras">Obtener Carreras</button>
 
-        <section id="carreras"></section> 
+        <section>
+            <h2>Calendario de carreras</h2>
+            <button>Obtener Carreras</button>
+        </section> 
+
+        
 
         <script>
             const agenda = new Agenda();
-            $("#btn-obtener-carreras").click(function() {
+            $("button").click(function() {
                 agenda.obtenerCarreras();  
             });
         </script>

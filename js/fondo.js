@@ -15,20 +15,22 @@ class Fondo {
             dataType: 'json',
             success: (data) => {
                 const photo = data.photos.photo[0];  
-                const imageUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.png`;
-                this.establecerImagenFondo(imageUrl);
+                const img_url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.png`;
+                this.establecerImagenFondo(img_url);
             }
         });
     }
 
-    establecerImagenFondo(imageUrl) {
-        const actualPhoto = document.querySelector('img');
-        if (actualPhoto) {
-            actualPhoto.remove();
+    establecerImagenFondo(img_url) {
+        const figureFotoPredeterminada = document.querySelector('figure');
+        if (figureFotoPredeterminada) {
+            figureFotoPredeterminada.remove();
         }
-        const figureForPhoto = document.getElementsByTagName('figure')[0];
-        const newPhoto = document.createElement('img');
-        newPhoto.src = imageUrl;
-        figureForPhoto.appendChild(newPhoto);
+
+        const fondo = document.getElementsByTagName('body')[0];
+        fondo.style.backgroundImage = `url('${img_url}')`;
+        fondo.style.backgroundSize = 'cover';
+        fondo.style.backgroundPosition = 'center';
+        fondo.style.backgroundRepeat = 'no-repeat';
     }
 }

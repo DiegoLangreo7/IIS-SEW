@@ -1,5 +1,4 @@
 class Semaforo {
-
     constructor() {
         this.levels = [0.2, 0.5, 0.8];
         this.lights = 4;
@@ -20,17 +19,11 @@ class Semaforo {
     // Crear encabezado
     createHeader(mainElement) {
         const head = document.createElement('section');
-        const title = document.createElement('h1');
+        const title = document.createElement('h3');
         const nav = document.createElement('nav');
-        const back = document.createElement('a');
-
-        back.href = "juegos.html";
-        back.textContent = "Volver";
-        back.classList.add('active');
 
         title.textContent = 'Juego de Reacción';
 
-        nav.appendChild(back);
         head.appendChild(title);
         head.appendChild(nav);
 
@@ -39,12 +32,10 @@ class Semaforo {
 
     // Crear las luces del semáforo
     createTrafficLights(mainElement) {
-        const trafficLightsContainer = document.createElement('div');
-        trafficLightsContainer.classList.add('traffic-lights');
+        const trafficLightsContainer = document.createElement('section');
 
         for (let i = 0; i < this.lights; i++) {
-            const light = document.createElement('div');
-            light.classList.add('light');
+            const light = document.createElement('div'); 
             trafficLightsContainer.appendChild(light);
         }
 
@@ -53,8 +44,7 @@ class Semaforo {
 
     // Crear los botones y agregarlos al contenedor principal
     createButtons(mainElement) {
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.classList.add('buttons');
+        const buttonsContainer = document.createElement('section');
 
         const startButton = document.createElement('button');
         startButton.textContent = 'Arranque';
@@ -67,7 +57,7 @@ class Semaforo {
         reactionTimeButton.textContent = 'Reacción';
         reactionTimeButton.disabled = true;
         reactionTimeButton.addEventListener('click', () => {
-            if(!reactionTimeButton.disabled )
+            if (!reactionTimeButton.disabled)
                 this.stopReaction();
         });
         buttonsContainer.appendChild(reactionTimeButton);
@@ -78,14 +68,13 @@ class Semaforo {
     ////////ACCIONES/////////////////////////
 
     initSequence() {
-        // Eliminar mensaje previo, si existe
         const existingMessage = document.querySelector('p');
         if (existingMessage) {
             existingMessage.remove();
         }
 
         // Deshabilitar el botón de arranque y habilitar el de reacción
-        const arranqueButton = document.querySelector('.buttons button:nth-child(1)');
+        const arranqueButton = document.querySelector('button:nth-child(1)');
         arranqueButton.disabled = true;
 
         // Iniciar la secuencia de luces
@@ -102,7 +91,7 @@ class Semaforo {
         const main = document.getElementsByTagName('main')[0];
         main.classList.remove('load'); 
         main.classList.add('unload'); 
-        const reactionButton = document.querySelector('.buttons button:nth-child(2)');
+        const reactionButton = document.querySelector('button:nth-child(2)');
         reactionButton.disabled = false;
     }
 
@@ -110,16 +99,15 @@ class Semaforo {
         this.clic_moment = new Date();
 
         const reactionTime = this.clic_moment - this.unload_moment;
-        //const roundedReactionTime = Number(reactionTime / 1000).toFixed(3);
 
         const reactionMessage = document.createElement('p');
         reactionMessage.textContent = `Tu tiempo de reacción fue de: ${reactionTime} milisegundos`;
         document.body.appendChild(reactionMessage);
 
-        const arranqueButton = document.querySelector('.buttons button:nth-child(1)');
+        const arranqueButton = document.querySelector('button:nth-child(1)');
         arranqueButton.disabled = false; 
 
-        const reactionButton = document.querySelector('.buttons button:nth-child(2)');
+        const reactionButton = document.querySelector('button:nth-child(2)');
         reactionButton.disabled = true; 
 
         this.unload_moment = null;

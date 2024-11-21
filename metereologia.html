@@ -1,17 +1,19 @@
 <!DOCTYPE HTML> 
 <html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <title>F1 Desktop - Meteorología</title>
-    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
-    <meta name="author" content="Diego García" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="estilo.css" />
-    <link rel="stylesheet" type="text/css" href="layout.css" />
-    <script src="js/pais.js"></script>
-</head>	
+    <head>
+        <meta charset="UTF-8" />
+        <title>F1 Desktop - Meteorología</title>
+        <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+        <meta name="author" content="Diego García" />
+        <meta name="description" content="Puedes ver informacion del pais, asi como de la situacion meteorológica" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="css/article_element.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="js/pais.js"></script>
+    </head>
 <body>
     <header>
         <h1><a href="index.html">F1 Desktop</a></h1>
@@ -32,19 +34,22 @@
         </p>        
         <h2>Información sobre Italia</h2>
         <script>
-            // Crear un objeto de la clase País
-				const pais = new Pais("Italia", "Roma", 58990000);
 				pais.inicializar("Circuito de Monza", "República Parlamentaria", "45.6150° N, 9.2816° E", "Catolicismo apostólico y romano");
 
-				// Presentar la información del país
 					document.write("<h3>Datos del País:</h3>");
 					document.write("<p>Nombre: " + pais.obtenerNombre() + "</p>");
 					document.write("<p>Capital: " + pais.obtenerCapital() + "</p>");
 					document.write("<h4>Información Secundaria:</h4>");
 					document.write(pais.obtenerInformacionSecundaria());
-					pais.escribirCoordenadas();
+					pais.escribirCoordenadas(); 
         </script>
-        <h3>Previsión meteorológica para los días de carrera</h3>
+
+        <!-- PREGUNTAR SI ESTO YE LEGAL -->
+
+        <section> 
+            <h2>Previsión meteorológica</h2>
+        </section>
+        <button onclick="pais.obtenerPrevisionMeteorologica()">Obtener información meteorológica</button>         
 
     </main>
     <footer>

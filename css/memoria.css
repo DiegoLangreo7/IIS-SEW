@@ -1,0 +1,90 @@
+/* Diego García González UO294255 */
+
+main body {
+    font-family: Verdana, sans-serif; 
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+}
+
+main section {
+    background-color:  #006400;
+}
+
+body main section h3{
+    font-size: 3rem;
+    grid-column: span 4;
+    background-color: transparent;
+    margin: 0rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0rem; 
+    /* Bordado */ 
+    border: 0.3em solid #D4AF37;
+    border-radius: 0.3em;
+    /* Tapete */
+    background: #006400; 
+    padding: 1rem; 
+}
+
+main section {
+    display: grid;
+    grid-template-columns: repeat(4, 20vw);
+    grid-template-rows: repeat(4, 25vh);
+    gap: 1rem;
+}
+
+
+
+main article {
+    width: 20vw; 
+    height: 25vh; 
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.3); 
+}
+
+main article h4,
+main article img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 0.5rem;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    
+    background-color: #f0f0f0; /* Gris claro para mejorar el contraste */
+    
+    background-image:
+        linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1)),
+        linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1));
+    background-size: 1rem 1rem;
+    background-position: 0 0, 0.5rem 0.5rem;
+
+    border: 2px solid #00008b; /* Azul oscuro para mayor contraste */
+}
+
+main article img {
+    transform: rotateY(180deg);
+    border-radius: 0.5rem;
+}
+
+main article[data-state="flip"],article[data-state="revealed"] {
+    transform: rotateY(180deg);
+    border-radius: 0.5rem;
+}
