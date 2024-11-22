@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>F1 Desktop - Calendario</title>
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+    <meta name="author" content="Diego García" />
+    <meta name="description" content="Documento para utilizar en otros módulos de la asignatura" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/agenda_grid.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/agenda.js"></script>
+</head>	
+<body>
+    <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav> 
+            <a href="index.html">Inicio</a>
+            <a href="piloto.html">Pilotos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="calendario.html" class="active">Calendario</a>
+            <a href="metereologia.html">Meteorología</a>
+            <a href="circuito.html">Circuitos</a>
+            <a href="viajes.html">Viajes</a>
+            <a href="juegos.html">Juegos</a>
+        </nav>
+    </header>
+    <main>
+        <p>
+            Estás en: <a href="index.html">Inicio</a> >>> Calendario
+        </p>
+
+        <section>
+            <h2>Calendario de carreras</h2>
+            <button>Obtener Carreras</button>
+        </section> 
+
+        
+
+        <script>
+            const agenda = new Agenda();
+            $("button").click(function() {
+                agenda.obtenerCarreras();  
+            });
+        </script>
+
+    </main>
+</body>
+</html>
