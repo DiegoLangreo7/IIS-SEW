@@ -55,21 +55,21 @@ main nav a {
     color: #20232A; 
 }
 
-main a {
+body li a {
     background-color: #FFFFFF;
     color: #20232A; 
 }
 
-main a:link {
+body li a:link {
     color: #20232A;
 }
   
-main a:hover {
+body li a:hover {
     border-bottom: 2px solid;
     background: #f0f0f0;
 }
   
-main a:active {
+body li a:active {
     background: #f0f0f0;
     color: #FFFFFF;
 }
