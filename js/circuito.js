@@ -20,7 +20,7 @@ class Circuito {
                 section.insertAdjacentHTML('beforeend', '<pre>' + contenido + '</pre>'); 
             };
             lector.onerror = function () {
-                section.insertAdjacentHTML('beforeend', '<p>Hubo un error al leer el archivo.</p>');
+                section.AdjacentHTML('beforeend', '<p>Hubo un error al leer el archivo.</p>');
             };
             lector.readAsText(archivo);
         }

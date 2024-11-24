@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Diego García González">
-    <meta name="description" content="Juego de Memoria de F1">
+    <meta name="description" content="Juego de las APIs">
     <meta name="keywords" content="html, css, javascript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory - Juego de Memoria</title>
+    <title>RESULTADO F1 - Resultado de la ultima carrera</title>    
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <link rel="stylesheet" href="css/memoria.css">
-    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/api.js"></script>
 </head>
 <body>
     <header>
@@ -32,18 +32,24 @@
     <h2>Juegos</h2>
     <ul>
         <li>
-            <a href="memoria.html" class="active">Juego de Memoria</a>
+            <a href="memoria.html">Juego de Memoria</a>
         </li>
         <li>
             <a href="semaforo.html">Juego de tiempo de reacción</a>
         </li>
         <li>
-            <a href="api.html">Juego de API</a>
+            <a href="api.html" class="active">Juego de API</a>
         </li>
     </ul>
     <main>
-        <section><h3>Juego de Memoria</h3></section>
+        <h2>Resultados de la ultima carrera:</h2>
     </main>
-    <script src="js/memoria.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            const api = new API();
+            api.mostrarUltimaCarrera();  
+        });
+    </script>
+    
 </body>
-</html>

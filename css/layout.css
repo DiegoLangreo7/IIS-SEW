@@ -5,6 +5,11 @@
         flex-direction: column;
     }
 
+    body {
+        background-size: contain; 
+        background-position: top;
+    }
+
     header nav a {
         margin: 0.5em 0;
     }
@@ -13,8 +18,30 @@
         display: none;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 , label{
         text-align: center;
+    }
+
+    section img {
+        max-width: 90%;       
+        padding: 1rem;        
+    }
+
+    article {
+        padding: 1.5rem;  /* Reduce el padding en pantallas pequeñas */
+    }
+
+    article img {
+        min-width: 100%;
+    }
+
+    article h3 {
+        font-size: 1.1rem;  /* Reduce el tamaño de los títulos */
+    }
+
+    article li {
+        font-size: 0.9rem;  /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 0.75rem;  /* Reduce el padding en los elementos de la lista */
     }
 }
 
