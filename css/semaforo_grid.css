@@ -35,7 +35,7 @@ section {
     grid-column: span 4;
     text-align: center;
     grid-row: 1;
-    margin: 1em;
+    margin: 1em 0em 1em 0em;
 }
 
 section h1 {
@@ -46,7 +46,7 @@ section h1 {
 section:nth-of-type(2) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1vw;
+    gap: 0.5vw;
     grid-row: 2;
     width: 100vw;
     margin-bottom: 4em;

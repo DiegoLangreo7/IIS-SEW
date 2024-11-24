@@ -22,19 +22,6 @@
         text-align: center;
     }
 
-    section img {
-        max-width: 90%;       
-        padding: 1rem;        
-    }
-
-    article {
-        padding: 1.5rem;  /* Reduce el padding en pantallas pequeñas */
-    }
-
-    article img {
-        min-width: 100%;
-    }
-
     article h3 {
         font-size: 1.1rem;  /* Reduce el tamaño de los títulos */
     }
