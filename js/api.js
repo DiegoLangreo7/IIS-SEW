@@ -105,6 +105,11 @@ class API {
                 loadButton.textContent = "Mostrar carrera favorita";
                 loadButton.addEventListener("click", () => this.obtenerCircuitoFavorito());
                 raceContainer.appendChild(loadButton);
+
+                const fullscreenButton = document.createElement("button");
+                fullscreenButton.textContent = "Ver ubicación en Pantalla Completa";
+                fullscreenButton.addEventListener("click", () => this.activarPantallaCompleta());
+                raceContainer.appendChild(fullscreenButton);
                 
                 const section = document.createElement("section");
                 const ubicationTitle = document.createElement('h4');
@@ -190,53 +195,22 @@ class API {
     
     /// FIN MOSTRAR MAPAS
 
-    /// API POINTERLOCK
+    /// API FULLSCREEN
 
-    activarPointerLock() {
-        const mapArea = document.querySelector("img[alt='Mapa estático de Google del circuito de la carrera']");
-        mapArea.addEventListener("click", () => {
-            mapArea.requestPointerLock();
-        });
-
-        document.addEventListener("pointerlockchange", () => {
-            if (document.pointerLockElement === mapArea) {
-                console.log("Pointer Lock activado.");
-                document.addEventListener("mousemove", this.moverMapa);
-            } else {
-                console.log("Pointer Lock desactivado.");
-                document.removeEventListener("mousemove", this.moverMapa);
-            }
-        });
-        
-        mapArea = document.querySelector("img[alt='Mapa estático de Google de la ubicación actual']");
-        mapArea.addEventListener("click", () => {
-            mapArea.requestPointerLock();
-        });
-
-        document.addEventListener("pointerlockchange", () => {
-            if (document.pointerLockElement === mapArea) {
-                console.log("Pointer Lock activado.");
-                document.addEventListener("mousemove", this.moverMapa);
-            } else {
-                console.log("Pointer Lock desactivado.");
-                document.removeEventListener("mousemove", this.moverMapa);
-            }
-        });
-    }
-
-    moverMapa(event) {
-        const mapArea = document.querySelector("img[alt='Mapa estático de Google del circuito de la carrera']");
-        if (document.pointerLockElement === mapArea) {
-            mapArea.style.transform = `translate(${event.movementX}rem, ${event.movementY}rem)`;
-        }
-
-        mapArea = document.querySelector("img[alt='Mapa estático de Google de la ubicación actual']");
-        if (document.pointerLockElement === mapArea) {
-            mapArea.style.transform = `translate(${event.movementX}rem, ${event.movementY}rem)`;
+    activarPantallaCompleta() {
+        const elemento = document.querySelector("section"); 
+        if (elemento.requestFullscreen) {
+            elemento.requestFullscreen();
+        } else if (elemento.mozRequestFullScreen) { // Firefox
+            elemento.mozRequestFullScreen();
+        } else if (elemento.webkitRequestFullscreen) { // Chrome, Safari y Opera
+            elemento.webkitRequestFullscreen();
+        } else if (elemento.msRequestFullscreen) { // IE/Edge
+            elemento.msRequestFullscreen();
         }
     }
 
-    /// FIN API POINTERLOCK
+    /// FIN API FULLSCREEN
 
     mostrarDistancia() {
         if (this.latitud !== null && this.longitud !== null && this.circuitLatitud !== null && this.circuitLongitud !== null) {
