@@ -8,14 +8,14 @@ class Fondo {
 
     obtenerImagenFlickr() {
         const apiKey = '3ff5c54cc98787d62f7d75efb0f3852e'; 
-        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${this.circuito}+circuito+f1&format=json&nojsoncallback=1`;
+        const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&text=${this.circuito}+circuit+f1&format=json&nojsoncallback=1`;
 
         $.ajax({
             url: url,
             method: 'GET',
             dataType: 'json',
             success: (data) => {
-                const photo = data.photos.photo[0];  
+                const photo = data.photos.photo[1];  
                 const img_url = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.png`;
                 this.establecerImagenFondo(img_url);
             }

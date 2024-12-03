@@ -30,5 +30,22 @@
         font-size: 0.9rem;  /* Tamaño de fuente más pequeño en pantallas pequeñas */
         padding: 0.75rem;  /* Reduce el padding en los elementos de la lista */
     }
+
+    main article section {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 1fr 1fr 0.1fr;
+    }
+
+    main article section h4 {
+        grid-column: span 1; 
+    }
+
+    main article section img {
+        width: 100%; 
+    }
+
+    main article section p {
+        grid-column: span 1; 
+    }
 }
 
