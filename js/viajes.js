@@ -62,8 +62,6 @@ class Viajes {
         if (!this.error) {
             
             const mapaDiv = document.createElement("div");
-            mapaDiv.style.width = "100%";
-            mapaDiv.style.height = "50vh";
             section.appendChild(mapaDiv);
             
             const centro = { lat: this.latitud, lng: this.longitud };

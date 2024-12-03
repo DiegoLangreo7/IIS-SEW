@@ -76,7 +76,7 @@ main article img {
     background-size: 1rem 1rem;
     background-position: 0 0, 0.5rem 0.5rem;
 
-    border: 2px solid #00008b; /* Azul oscuro para mayor contraste */
+    border: 2px solid #000; /* Azul oscuro para mayor contraste */
 }
 
 main article img {

@@ -18,38 +18,30 @@
 
 main {
     font-family: Verdana, sans-serif;
-    width: 100vw;
-    height: 80vh;
+    width: 100%;
+    height: 50%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
+    grid-template-rows: 1fr 1fr 1fr 1fr; /* 4 filas, una para cada sección */
+    gap: 1em; /* Espacio entre las filas y columnas */
 }
 
-main h3{
+/* h3 ocupa toda la primera fila */
+main h3 {
+    grid-column: span 4; /* Ocupa 4 columnas (toda la fila) */
+    text-align: center;
     background-color: transparent;
     color: black;
 }
 
-/* Estilo del encabezado */
-section {
-    grid-column: span 4;
-    text-align: center;
-    grid-row: 1;
-    margin: 1em 0em 1em 0em;
-}
-
-section h1 {
-    color: #333;
-}
-
-/* Contenedor de las luces del semáforo */
-section:nth-of-type(2) {
+/* Contenedor de las luces del semáforo (segunda fila) */
+main:nth-of-type(2) {
+    grid-row: 2; 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5vw;
-    grid-row: 2;
-    width: 100vw;
-    margin-bottom: 4em;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 0.5vw; 
+    width: 100%;
+    height: 15vw;
 }
 
 /* Estilo para las luces */
@@ -58,18 +50,21 @@ div {
     border: 0.5vw solid #000;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
-    width: 15vw;
+    display: flex; /* Activamos el modelo de flexbox */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
 }
 
-/* Contenedor de los botones (footer) */
-section:nth-of-type(3) {
-    grid-row: 3;
+/* Sección de los botones ocupa toda la tercera fila */
+main section {
+    grid-column: span 4;
     display: flex;
-    justify-content: center;
-    gap: 1em;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    gap: 2em; /* Espacio entre los botones */
 }
 
-/* Estilo para los botones */
+/* Estilo para los botones con tamaño fijo */
 button {
     padding: 0.8em 2em;
     color: white;
@@ -79,6 +74,8 @@ button {
     box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 10em; /* Ancho fijo */
+    height: 4em; /* Altura fija */
 }
 
 /* Efecto hover en el botón */
@@ -135,9 +132,72 @@ main p {
     display: inline-block;
 }
 
-/* Animación para luces en la secuencia de descarga */
 main.unload div {
     animation-name: out;
     animation-duration: 0.1s;
     animation-fill-mode: forwards;
+}
+
+table {
+    font-size: 1.2rem;
+    grid-row: 4; 
+    grid-column: span 4; 
+    width: 100%; 
+    border-collapse: collapse;
+}
+
+th:nth-child(1), td:nth-child(1) {
+    width: 6vw; 
+}
+
+th:nth-child(2), td:nth-child(2),
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4) {
+    width: 26vw; 
+}
+
+form {
+    grid-row: 4; 
+    grid-column: span 4; 
+    display: flex;
+    flex-direction: column;
+    gap: 1em; 
+    padding: 2em;
+    border: 0.1em solid #ccc;
+    border-radius: 0.5em;
+    background-color: #ffffff;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    box-sizing: border-box;
+    margin-top: 2em; 
+    margin-bottom: 2em; 
+    align-self: center; 
+}
+
+/* Estilo de los campos de entrada */
+form input[type="text"] {
+    padding: 0.5em;
+    border: 0.1em solid #ccc;
+    border-radius: 0.3em;
+    font-size: 1em; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+/* Botón de envío */
+form button[type="submit"] {
+    padding: 0.75em;
+    border: none;
+    border-radius: 0.3em;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2em; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; 
+}
+
+/* Efecto hover en el botón */
+form button[type="submit"]:hover {
+    background-color: #0056b3;
 }

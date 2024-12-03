@@ -21,7 +21,8 @@
 		<uni:referencias>https://www.formula1.com/en/racing/2024/italy/circuit</uni:referencias>
 		<uni:referencias>https://es.wikipedia.org/wiki/Autodromo_Nazionale_di_Monza</uni:referencias>
 		<uni:referencias>https://www.dazn.com/es-ES/news/motor/circuito-monza-donde-esta-como-es-caracteristicas-como-llegar-fotos-escenario-gp-italia-mundial-f1/1rvwgg1hco88f14fi4ivfb1g00</uni:referencias>
-		<uni:fotografias>circuitoMonza.jpg</uni:fotografias>
+		<uni:fotografias>CircuitoMonza.jpg</uni:fotografias>
+		<uni:fotografias>CircuitoMonzaEsquema.jpg</uni:fotografias>
 		<uni:coordenadas>
 			<uni:longitud>9.281197983803695</uni:longitud>
 			<uni:latitud>45.61897580466426</uni:latitud>

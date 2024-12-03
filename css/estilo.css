@@ -55,21 +55,21 @@ main nav a {
     color: #20232A; 
 }
 
-body li a {
+body section li a {
     background-color: #FFFFFF;
     color: #20232A; 
 }
 
-body li a:link {
+body section li a:link {
     color: #20232A;
 }
   
-body li a:hover {
+body section li a:hover {
     border-bottom: 2px solid;
     background: #f0f0f0;
 }
   
-body li a:active {
+body section li a:active {
     background: #f0f0f0;
     color: #FFFFFF;
 }
@@ -117,9 +117,8 @@ main > figure > img {
 }
 
 p {
-    font-family: Arial, sans-serif;
     font-size: 1rem;
-    color: #555;
+    color: #20232A;
     margin: 1.25em 0;
 }
 
@@ -137,9 +136,7 @@ p a:hover {
 
 
 main p {
-    font-family: Arial, sans-serif;
     font-size: 1rem;
-    color: #555;
     margin: 0.625em 0;
 }
 
@@ -147,7 +144,6 @@ main p label {
     font-weight: bold;
     display: block;
     margin-bottom: 0.3125em;
-    color: #333;
     text-align: center;
 }
 
@@ -167,7 +163,7 @@ section img {
     display: block;         
     max-width: 100%;        
     height: auto;          
-    margin: 0 auto;        
+    margin: 1em;        
 }
 
 article h3 {
@@ -201,7 +197,7 @@ article li:hover {
 
 article p {
     font-size: 1rem;
-    color: #555; 
+    color: #20232A; 
     line-height: 1.6;  
     margin-bottom: 1rem;  
 }
@@ -213,7 +209,48 @@ article img {
     margin: 1rem 1rem 1rem 0rem; 
 }
 
+table {
+    width: 100%;  
+    margin-bottom: 2rem;
+    background-color: #FFFFFF; 
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem; 
+    text-align: left; 
+    border-bottom: 0.0625rem solid #ddd;
+    width: 100%; 
+}
+
+th {
+    background-color: #B30600; 
+    color: #FFFFFF; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    font-size: 1.25rem; 
+    width: 20%; 
+}
+
+td {
+    font-size: 1rem; 
+    width: 80%; 
+}
 
 
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
+tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease; 
+}	  
 
+section > div {
+    width : 100%;
+    height : 65vh;
+    position: relative;
+}
