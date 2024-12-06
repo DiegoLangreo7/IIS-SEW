@@ -13,13 +13,13 @@ class Record {
     }
 
     public function insertRecord($nombre, $apellidos, $nivel, $tiempo) {
-        $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+        $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
-        if ($conn->connect_error) {
-            die("Conexión fallida: " . $conn->connect_error);
+        if ($db->connect_error) {
+            die("Conexión fallida: " . $db->connect_error);
         }
 
-        $stmt = $conn->prepare("INSERT INTO registro (nombre, apellidos, nivel, tiempo) VALUES (?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO registro (nombre, apellidos, nivel, tiempo) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("sssi", $nombre, $apellidos, $nivel, $tiempo);
 
         if ($stmt->execute()) {
@@ -29,17 +29,17 @@ class Record {
         }
 
         $stmt->close();
-        $conn->close();
+        $db->close();
     }
 
     public function getTopRecords($nivel) {
-        $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+        $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
-        if ($conn->connect_error) {
-            die("Conexión fallida: " . $conn->connect_error);
+        if ($db->connect_error) {
+            die("Conexión fallida: " . $db->connect_error);
         }
 
-        $stmt = $conn->prepare("SELECT nombre, apellidos, nivel, tiempo FROM registro WHERE nivel = ? ORDER BY tiempo ASC LIMIT 10");
+        $stmt = $db->prepare("SELECT nombre, apellidos, nivel, tiempo FROM registro WHERE nivel = ? ORDER BY tiempo ASC LIMIT 10");
         $stmt->bind_param("s", $nivel);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -50,41 +50,32 @@ class Record {
         }
 
         $stmt->close();
-        $conn->close();
+        $db->close();
 
         return $records;
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['nivel']) && isset($_POST['tiempo'])) {
-        $nombre = $_POST['nombre'];
-        $apellidos = $_POST['apellidos'];
-        $nivel = $_POST['nivel'];
-        $tiempo = $_POST['tiempo'];
 
-        $record = new Record();
-        $record->insertRecord($nombre, $apellidos, $nivel, $tiempo);
-    } else {
-        echo "Faltan datos";
-    }
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $nivel = $_POST['nivel'];
+    $tiempo = $_POST['tiempo'];
+
+    $record = new Record();
+    $record->insertRecord($nombre, $apellidos, $nivel, $tiempo);
+    
 } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['nivel'])) {
     $nivel = (string)$_GET['nivel'];
     $record = new Record();
     $topRecords = $record->getTopRecords($nivel);
 
     header('Content-Type: application/json');
-    if (count($topRecords) > 0) {
-        echo json_encode([
-            "status" => "success",
-            "top_results" => $topRecords
-        ]);
-    } else {
-        echo json_encode([
-            "status" => "error",
-            "message" => "No hay registros para este nivel."
-        ]);
-    }
+    echo json_encode([
+        "status" => "success",
+        "top_results" => $topRecords
+    ]);
     exit();
 }
 ?>

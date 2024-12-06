@@ -24,7 +24,10 @@ header {
 main {
     
     background-color: #FFFFFF;
-    color: #20232A;
+}
+
+h1,h2,h3,h4,h5{
+    padding: 0.75rem;
 }
 
 h1 a {
@@ -148,8 +151,6 @@ main p label {
 
 input {
     display: block;
-    margin: 1rem auto 2rem auto; 
-    padding: 0.8rem 1.6rem;
     background-color: #B30600;
     color: #FFFFFF;
     border: none;
@@ -210,6 +211,7 @@ article img {
 
 table {
     width: 100%;  
+    margin-top: 2rem;
     margin-bottom: 2rem;
     background-color: #FFFFFF; 
     border-radius: 0.5rem;
@@ -219,7 +221,7 @@ table {
 
 th, td {
     padding: 1rem; 
-    text-align: left; 
+    text-align: center;
     border-bottom: 0.0625rem solid #ddd;
     width: 100%; 
 }
@@ -229,12 +231,12 @@ th {
     color: #FFFFFF; 
     font-weight: bold; 
     text-transform: uppercase;
-    font-size: 1.25rem; 
+    font-size: 2vw; 
     width: 20%; 
 }
 
 td {
-    font-size: 1rem; 
+    font-size: 3vw; 
     width: 80%; 
 }
 
