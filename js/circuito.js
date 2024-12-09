@@ -138,6 +138,7 @@ class Circuito {
                 const map = new google.maps.Map(mapaDiv, {
                     center: { lat: 45.61897580466426, lng: 9.281197983803695 },
                     zoom: 14,
+                    mapId: "DEMO_MAP_ID",
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
         
@@ -155,9 +156,10 @@ class Circuito {
                             const [lng, lat] = coordStr.split(",").map(Number);
                             if (lat && lng) {
                                 const position = { lat: lat, lng: lng };
-                                new google.maps.Marker({
+                                new google.maps.marker.AdvancedMarkerElement({
                                     position: position,
-                                    map: map
+                                    map: map,
+                                    title: 'Monza circuito',
                                 });
         
                                 pathCoordinates.push(position);

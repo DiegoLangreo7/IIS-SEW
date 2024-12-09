@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="calendario.html">Calendario</a>
             <a href="metereologia.html">Meteorología</a>
             <a href="circuito.html">Circuitos</a>
-            <a href="viajes.html">Viajes</a>
+            <a href="viajes.php">Viajes</a>
             <a href="juegos.html" class="active">Juegos</a>
         </nav>
     </header>
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="semaforo.php" class="active">Juego de tiempo de reacción</a>
         </li>
         <li>
-            <a href="api.html">Juego de API</a>
+            <a href="api.html">Resultados ultima carrera</a>
         </li>
     </ul>
     <main>

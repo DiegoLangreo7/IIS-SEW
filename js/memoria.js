@@ -17,10 +17,18 @@ class Memoria {
 
         this.createElements();
         this.addEventListeners();
+        this.deleteHelp();
+        this.createBotton();
     }
 
     createElements() {
         const memoryCardsContainer = document.querySelector('section');
+
+        while (memoryCardsContainer.firstChild) {
+            memoryCardsContainer.removeChild(memoryCardsContainer.firstChild);
+        }
+
+        memoryCardsContainer.innerHTML  =`<h3>Juego de Memoria</h3>`;
 
         const elementsArray = Object.entries(this.elements).flatMap(([element, src]) => [
             { element, src },
@@ -101,6 +109,58 @@ class Memoria {
     resetBoard() {
         [this.hasFlippedCard, this.lockBoard, this.firstCard, this.secondCard] = [false, false, null, null];
     }
+
+    showHelp() {
+        this.deleteHelp();
+        const ayudaContainer = document.createElement("article");
+    
+        ayudaContainer.innerHTML = `
+            <p>
+                Este es un juego de memoria. Las reglas son simples:
+            </p>
+            <ul>
+                <li>Haz clic en una carta para voltearla.</li>
+                <li>Encuentra su pareja volteando otra carta.</li>
+                <li>Si las cartas coinciden, permanecerán visibles.</li>
+                <li>Si no coinciden, ambas cartas se voltearán nuevamente.</li>
+            </ul>
+            <p>¡Tu objetivo es encontrar todas las parejas con el menor número de intentos posible!</p>
+        `;
+    
+        const main = document.querySelector('main');
+        main.parentNode.insertBefore(ayudaContainer, main);
+    
+        this.deleteBotton();
+    }
+
+    createBotton(){
+        const botones = document.querySelectorAll('button');
+        if (botones.length > 1) {
+            return;
+        }
+
+        const helpButton = document.createElement("button");
+        helpButton.innerHTML = "Obtener Ayuda";
+        helpButton.onclick = () => this.showHelp();
+    
+        const main = document.querySelector('main');
+        main.parentNode.insertBefore(helpButton, main);
+    }
+
+    deleteBotton() {
+        const botones = document.querySelectorAll('button');
+        const botonAyuda = botones[1];
+        if (botonAyuda) {
+            botonAyuda.remove();
+        }
+    }
+
+    deleteHelp() {
+        const yaExistente = document.querySelector('body > article');
+        if (yaExistente) {
+            yaExistente.remove();
+        }
+    }
 }
 
-const memoriaJuego = new Memoria();
+let memoriaJuego = new Memoria();
