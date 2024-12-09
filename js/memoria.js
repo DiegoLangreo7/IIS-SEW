@@ -84,18 +84,17 @@ class Memoria {
     }
 
     disableCards() {
-    
-	this.firstCard.setAttribute("data-state", "revealed");
-    this.secondCard.setAttribute("data-state", "revealed");
+	    this.firstCard.setAttribute("data-state", "revealed");
+        this.secondCard.setAttribute("data-state", "revealed");
 
-    this.firstCard.removeEventListener("click", this.flipCard.bind(this, this.firstCard));
-    this.secondCard.removeEventListener("click", this.flipCard.bind(this, this.secondCard));
+        this.firstCard.removeEventListener("click", this.flipCard.bind(this, this.firstCard));
+        this.secondCard.removeEventListener("click", this.flipCard.bind(this, this.secondCard));
 
 
-    setTimeout(() => {
-        this.resetBoard();
-    }, 1000); 
-}
+        setTimeout(() => {
+            this.resetBoard();
+        }, 100); 
+    }
 
 
     unflipCards() {
@@ -103,7 +102,7 @@ class Memoria {
             this.firstCard.removeAttribute("data-state");
             this.secondCard.removeAttribute("data-state");
             this.resetBoard();
-        }, 1000);
+        }, 600);
     }
 
     resetBoard() {
@@ -134,19 +133,17 @@ class Memoria {
     }
 
     createBotton(){
-        /** 
         const botones = document.querySelectorAll('button');
         if (botones.length > 1) {
             return;
         }
 
         const helpButton = document.createElement("button");
-        helpButton.innerHTML = "Obtener Ayuda";
+        helpButton.innerHTML = "¿Como Jugar?";
         helpButton.onclick = () => this.showHelp();
     
         const main = document.querySelector('main');
         main.parentNode.insertBefore(helpButton, main);
-        */
     }
 
     deleteBotton() {

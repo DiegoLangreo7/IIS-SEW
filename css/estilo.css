@@ -293,6 +293,7 @@ main article section p {
 button {
     background-color: #B30600;
     color: #FFFFFF;
+    font-weight: bold;
 }
 
 main article button {
