@@ -134,6 +134,7 @@ class Memoria {
     }
 
     createBotton(){
+        /** 
         const botones = document.querySelectorAll('button');
         if (botones.length > 1) {
             return;
@@ -145,6 +146,7 @@ class Memoria {
     
         const main = document.querySelector('main');
         main.parentNode.insertBefore(helpButton, main);
+        */
     }
 
     deleteBotton() {
