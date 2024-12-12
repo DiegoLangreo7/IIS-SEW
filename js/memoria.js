@@ -18,7 +18,6 @@ class Memoria {
         this.createElements();
         this.addEventListeners();
         this.deleteHelp();
-        this.createBottonHelp();
     }
 
     createElements() {
@@ -29,6 +28,8 @@ class Memoria {
         }
 
         memoryCardsContainer.innerHTML  =`<h3>Juego de Memoria</h3>`;
+
+        this.createBottonHelp();
 
         const elementsArray = Object.entries(this.elements).flatMap(([element, src]) => [
             { element, src },
@@ -122,33 +123,21 @@ class Memoria {
                 <li>¡Tu objetivo es encontrar todas las parejas con el menor número de intentos posible!</li>
             </ul>
         `;
-
-        this.deleteBottonHelp();
+    
         const main = document.querySelector('main');
-        main.appendChild(ayudaContainer);    
-        
+        main.appendChild(ayudaContainer);
+    
+        ayudaContainer.scrollIntoView({ behavior: 'smooth' });
     }
+    
 
     createBottonHelp(){
-        const botones = document.querySelectorAll('button');
-        if (botones.length > 1) {
-            return;
-        }
-
         const helpButton = document.createElement("button");
         helpButton.innerHTML = "¿Como Jugar?";
         helpButton.onclick = () => this.showHelp();
     
-        const main = document.querySelector('main');
-        main.appendChild(helpButton);
-    }
-
-    deleteBottonHelp() {
-        const botones = document.querySelectorAll('button');
-        const botonAyuda = botones[1];
-        if (botonAyuda) {
-            botonAyuda.remove();
-        }
+        const section = document.querySelector('section:nth-of-type(1)');
+        section.appendChild(helpButton);
     }
 
     deleteHelp() {

@@ -39,13 +39,19 @@ main {
 main section {
     display: grid;
     grid-template-columns: repeat(4, 20vw);
-    grid-template-rows: repeat(4, 25vh);
+    grid-template-rows: 14vh 12vh repeat(3, 25vh);
     gap: 1rem;
 }
+
+body main section button {
+    grid-column: span 4;
+}
+
 main section:nth-of-type(2){
     display: flex;
     gap: 1rem;
     background-color: #FFFFFF;
+    /*Retomamos el bordado*/
     border: 0.3em solid #D4AF37;
     border-radius: 0.3em;
 }
