@@ -1,6 +1,6 @@
 /* Diego García González UO294255 */
 
-@media (max-width: 768px) {
+@media (max-width: 799px) {
     header nav {
         flex-direction: column;
     }

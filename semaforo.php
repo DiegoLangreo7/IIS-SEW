@@ -79,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -111,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </nav>
     </header>
     <p>
-        Estás en: <a href="index.html">Inicio</a> >>> Juegos
+        Estás en: <a href="index.html">Inicio</a> >>> Juegos >>> Juego de tiempo de reaccion
     </p>
     <h2>Juegos</h2>
     <ul>

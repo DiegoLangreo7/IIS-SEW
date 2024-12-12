@@ -3,40 +3,6 @@ class Viajes {
       this.error = false;
       this.curSlide = 0;
 
-      $("article").css({
-        "width": "100%",
-        "height": "100vh",
-        "position": "relative",
-        "overflow": "hidden"
-    });
-
-    $("article img").css({
-        "width": "100%",
-        "height": "100%",
-        "position": "absolute",
-        "transition": "all 0.5s",
-        "object-fit": "cover",
-        "border-radius": "0.5em"
-    });
-
-    $("article button").css({
-        "position": "absolute",
-        "width": "2em",
-        "height": "2em",
-        "padding": "0.5em",
-        "border": "none",
-        "border-radius": "50%",
-        "z-index": "10",
-        "cursor": "pointer",
-        "background-color": "#fff",
-        "font-size": "1em",
-        "display": "flex",
-        "flex-direction": "column",
-        "align-items": "center",
-        "color": "black",
-        "justify-content": "center"
-    });
-
       navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this), this.showErrors.bind(this));
 
       this.article = document.querySelector("article");

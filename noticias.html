@@ -32,12 +32,18 @@
         <p>
             Estás en: <a href="index.html">Inicio</a> >>> Noticias
         </p>
-        <section> 
             <h2>Noticias</h2>
-            <input type="file" onchange="noticia.readInputFile(this.files);">
-        </section>
-
-        
+            <section> 
+                <h3>Ver Noticias</h3>
+            </section>
+            <article>
+                <h3>Introducir noticia manualmente</h3>
+                <button onclick="noticia.generateFormNotice()">Crear Noticia</button>         
+            </article>
+            <article>
+                <h3>Introducir noticia por fichero</h3>
+                <input type="file" onchange="noticia.readInputFile(this.files);">  
+            </article>
     </main>
 </body>
 </html>

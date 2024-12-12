@@ -73,7 +73,7 @@ class Semaforo {
         };
         
         const form = $(`
-            <form>
+            <form action='#' method='post' name='record'>
                 <h4>Registrar tu record</h4>
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" required>
