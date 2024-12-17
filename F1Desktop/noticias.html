@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>F1 Desktop - Noticias</title>
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+    <meta name="author" content="Diego García" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/article_element.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/noticias.js"></script>
+</head>    
+<body>
+    <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav> 
+            <a href="index.html">Inicio</a>
+            <a href="piloto.html">Pilotos</a>
+            <a href="noticias.html" class="active">Noticias</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="metereologia.html">Meteorología</a>
+            <a href="circuito.html">Circuitos</a>
+            <a href="viajes.php">Viajes</a>
+            <a href="juegos.html">Juegos</a>
+        </nav>
+    </header>
+    <p>
+        Estás en: <a href="index.html">Inicio</a> >>> Noticias
+    </p>
+    <main>
+            <h2>Noticias</h2>
+            <section> 
+                <h3>Ver Noticias</h3>
+            </section>
+            <article>
+                <h4>Introducir noticia manualmente</h4>
+                <button onclick="noticia.generateFormNotice()">Crear Noticia</button>         
+            </article>
+            <article>
+                <h4>Introducir noticia por fichero</h4>
+                <input type="file" onchange="noticia.readInputFile(this.files);">  
+            </article>
+    </main>
+</body>
+</html>

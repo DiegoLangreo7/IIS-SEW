@@ -1,0 +1,19 @@
+"Tabla: coches"
+id,nombre,motor,id_equipo
+1,"Opel Corsa",Corsa,1
+
+"Tabla: equipos"
+id,nombre,base,jefe,fundation_date,world_championships,pole_positions,vueltas_rapidas
+1,Alpine,"Enstone, Reino Unido","Oliver Oakes",1955-06-22,2,20,16
+2,RedBull,"Faenza, Italia","Laurent Mékies",2004-11-15,0,1,4
+3,Mercedes,"Brackley, Reino Unido","Toto Wolff",1954-07-04,8,133,100
+
+"Tabla: es_patrocinador"
+id_equipo,id_patrocinador
+
+"Tabla: patrocinador"
+id,nombre_patrocinador
+
+"Tabla: pilotos"
+id,n_pista,nombre,nacionalidad,fecha_nacimiento,id_equipo
+
