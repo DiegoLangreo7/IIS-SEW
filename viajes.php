@@ -99,11 +99,13 @@ $fotos = $carrusel->obtenerFotos();
             <a href="juegos.html">Juegos</a>
         </nav>
     </header>
-    
-    <main>
-      <p>
+
+    <p>
         Estás en: <a href="index.html">Inicio</a> >>> Viajes
-      </p>
+    </p>
+
+    <main>
+      
 
       <h2>Viajes</h2>
 
