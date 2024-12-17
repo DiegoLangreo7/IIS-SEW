@@ -9,134 +9,111 @@ class F1Teams {
         $this->server = "localhost"; 
         $this->user = "DBUSER2024";  
         $this->pass = "DBPSWD2024"; 
-        $this->dbname = "teams";   
+        $this->dbname = "prueba1";   
     }
 
-    // Método para crear la base de datos y sus tablas
-    public function createDatabase() {
+    // Método para crear la base de datos utilizando un archivo SQL
+    public function createDatabaseFromSQL($filePath) {
         $conn = new mysqli($this->server, $this->user, $this->pass);
         if ($conn->connect_error) {
             die("Conexión fallida: " . $conn->connect_error);
         }
 
-        // Crear la base de datos
-        $sql = "CREATE DATABASE IF NOT EXISTS " . $this->dbname;
-        if ($conn->query($sql) === TRUE) {
-            echo "Base de datos creada con éxito.<br>";
+        // Leer el contenido del archivo SQL
+        if (file_exists($filePath)) {
+            $sql = file_get_contents($filePath);
+            if ($sql === false) {
+                die("Error al leer el archivo SQL.");
+            }
+
+            // Ejecutar las sentencias del archivo SQL
+            if ($conn->multi_query($sql)) {
+                do {
+                    if ($result = $conn->store_result()) {
+                        $result->free();
+                    }
+                } while ($conn->next_result());
+
+                echo "Base de datos y tablas creadas con éxito desde el archivo SQL.<br>";
+            } else {
+                echo "Error al ejecutar el archivo SQL: " . $conn->error . "<br>";
+            }
         } else {
-            echo "Error al crear la base de datos: " . $conn->error . "<br>";
-        }
-
-        // Seleccionar la base de datos
-        $conn->select_db($this->dbname);
-
-        // Crear tablas
-        $sql = <<<SQL
-        CREATE TABLE IF NOT EXISTS equipos (
-            id INT(11) NOT NULL AUTO_INCREMENT,
-            nombre VARCHAR(255) NOT NULL,
-            base VARCHAR(255) NOT NULL,
-            jefe VARCHAR(255) NOT NULL,
-            fundation_date DATE NOT NULL,
-            world_championships INT(11) NOT NULL,
-            pole_positions INT(11) NOT NULL,
-            vueltas_rapidas INT(11) NOT NULL,
-            PRIMARY KEY (id)
-        );
-        CREATE TABLE IF NOT EXISTS coches (
-            id INT(11) NOT NULL AUTO_INCREMENT,
-            nombre VARCHAR(255) NOT NULL,
-            motor VARCHAR(255) NOT NULL,
-            id_equipo INT(11) NOT NULL,
-            PRIMARY KEY (id),
-            FOREIGN KEY (id_equipo) REFERENCES equipos(id) ON DELETE CASCADE
-        );
-        CREATE TABLE IF NOT EXISTS patrocinador (
-            id INT(11) NOT NULL AUTO_INCREMENT,
-            nombre_patrocinador VARCHAR(255) NOT NULL,
-            PRIMARY KEY (id)
-        );
-        CREATE TABLE IF NOT EXISTS es_patrocinador (
-            id_equipo INT(11) NOT NULL,
-            id_patrocinador INT(11) NOT NULL,
-            PRIMARY KEY (id_equipo, id_patrocinador),
-            FOREIGN KEY (id_equipo) REFERENCES equipos(id) ON DELETE CASCADE,
-            FOREIGN KEY (id_patrocinador) REFERENCES patrocinador(id) ON DELETE CASCADE
-        );
-        CREATE TABLE IF NOT EXISTS pilotos (
-            id INT(11) NOT NULL AUTO_INCREMENT,
-            n_pista INT(11) NOT NULL,
-            nombre VARCHAR(255) NOT NULL,
-            nacionalidad VARCHAR(100) NOT NULL,
-            fecha_nacimiento DATE NOT NULL,
-            id_equipo INT(11) NOT NULL,
-            PRIMARY KEY (id),
-            FOREIGN KEY (id_equipo) REFERENCES equipos(id) ON DELETE CASCADE
-        );
-        SQL;
-
-        if ($conn->multi_query($sql) === TRUE) {
-            echo "Tablas creadas con éxito.<br>";
-        } else {
-            echo "Error al crear las tablas: " . $conn->error . "<br>";
+            echo "El archivo SQL no existe en la ruta especificada.<br>";
         }
 
         $conn->close();
     }
 
-    // Método para importar datos desde un archivo CSV
-    public function importFromCSV($file) {
+    public function importFromCSV($file, $table) {
         $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
         if ($conn->connect_error) {
             die("Conexión fallida: " . $conn->connect_error);
         }
-
+    
         if (($handle = fopen($file, "r")) !== FALSE) {
-            fgetcsv($handle); // Ignorar la primera línea (encabezados)
-
+            $headers = fgetcsv($handle); 
+            $columns = implode(", ", array_map([$conn, 'real_escape_string'], $headers)); 
+    
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                // Procesar cada fila e insertarla en las tablas
-                // Este código asume un formato específico en el CSV. Ajusta según tus necesidades.
-                $sql = "INSERT INTO equipos (nombre, base, jefe, fundation_date, world_championships, pole_positions, vueltas_rapidas)
-                        VALUES ('" . implode("','", array_map([$conn, 'real_escape_string'], $data)) . "')";
-                $conn->query($sql);
+                $values = implode("', '", array_map([$conn, 'real_escape_string'], $data));
+                $sql = "INSERT INTO `$table` ($columns) VALUES ('$values')";
+    
+                if (!$conn->query($sql)) {
+                    echo "Error al insertar los datos en la tabla $table: " . $conn->error . "<br>";
+                }
             }
-
+    
             fclose($handle);
-            echo "Datos importados con éxito.";
+            echo "Datos importados con éxito a la tabla $table.";
         } else {
             echo "Error al abrir el archivo.";
         }
-
+    
         $conn->close();
     }
+    
 
-    // Método para exportar datos a un archivo CSV
+    // Método para exportar toda la base de datos a un archivo CSV
     public function exportToCSV($file) {
         $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
         if ($conn->connect_error) {
             die("Conexión fallida: " . $conn->connect_error);
         }
 
-        $sql = "SELECT * FROM equipos";
-        $result = $conn->query($sql);
+        // Obtener todas las tablas de la base de datos
+        $tables = [];
+        $result = $conn->query("SHOW TABLES");
+        if ($result) {
+            while ($row = $result->fetch_array()) {
+                $tables[] = $row[0];
+            }
+        }
 
-        if ($result->num_rows > 0) {
-            $fp = fopen($file, 'w');
+        $fp = fopen($file, 'w');
+        if (!$fp) {
+            die("Error al crear el archivo CSV.");
+        }
 
-            // Escribir encabezados
-            fputcsv($fp, array('id', 'nombre', 'base', 'jefe', 'fundation_date', 'world_championships', 'pole_positions', 'vueltas_rapidas'));
+        // Exportar cada tabla
+        foreach ($tables as $table) {
+            fputcsv($fp, ["Tabla: $table"]);
+            $columnsResult = $conn->query("SHOW COLUMNS FROM $table");
+            $columns = [];
+            while ($column = $columnsResult->fetch_assoc()) {
+                $columns[] = $column['Field'];
+            }
+            fputcsv($fp, $columns);
 
-            // Escribir datos
-            while ($row = $result->fetch_assoc()) {
+            $dataResult = $conn->query("SELECT * FROM $table");
+            while ($row = $dataResult->fetch_assoc()) {
                 fputcsv($fp, $row);
             }
-
-            fclose($fp);
-            echo "Datos exportados a $file.";
-        } else {
-            echo "No hay datos para exportar.";
+            fputcsv($fp, []); // Línea en blanco para separar tablas
         }
+
+        fclose($fp);
+        echo "Base de datos exportada a $file.";
 
         $conn->close();
     }
@@ -146,13 +123,20 @@ $f1 = new F1Teams();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['create_db'])) {
-        $f1->createDatabase();
+        $sqlFilePath = 'prueba1.sql'; 
+        $f1->createDatabaseFromSQL($sqlFilePath);
     } elseif (isset($_POST['import_csv'])) {
-        $f1->importFromCSV($_FILES['csv_file']['tmp_name']);
+        $selectedTable = $_POST['tablas']; 
+        if (!empty($_FILES['csv_file']['tmp_name']) && !empty($selectedTable)) {
+            $f1->importFromCSV($_FILES['csv_file']['tmp_name'], $selectedTable);
+        } else {
+            echo "Por favor, selecciona un archivo CSV y una tabla para importar.";
+        }
     } elseif (isset($_POST['export_csv'])) {
-        $f1->exportToCSV("exported_data.csv");
+        $f1->exportToCSV("database2.csv");
     }
 }
+
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -166,6 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/librePHP.css" />
 </head>
 <body>
     <header>
@@ -201,14 +186,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</li>
         </ul>
     </main>
-    <h1>Gestión de Equipos de F1</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <button name="create_db">Crear Base de Datos</button>
-        <br><br>
-        <input type="file" name="csv_file" accept=".csv">
-        <button name="import_csv">Importar CSV</button>
-        <br><br>
-        <button name="export_csv">Exportar a CSV</button>
-    </form>
+    <section>
+        <h2>Gestión de Equipos de F1</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <article>
+                <h3>Crear la base de datos</h3>
+                <p>
+                    Esta accion creara la base de datos vacia,
+                    es necesario importar las tablas para el uso 
+                    de la informacion.
+                </p>
+                <button name="create_db">Crear Base de Datos</button>
+            </article>
+            <article>
+                <h3>Importar el CSV de una tabla</h3>
+                <label for="tablas">Seleccionar la tabla correspondiente:</label>
+                <select name="tablas" id="tablas">
+                    <option value="coches">Tabla coches</option>
+                    <option value="equipos">Tabla equipos</option>
+                    <option value="es_patrocinador">Tabla es_patrocinador</option>
+                    <option value="patrocinador">Tabla patrocinador</option>
+                    <option value="pilotos">Tabla pilotos</option>
+                </select>
+                <input type="file" name="csv_file" accept=".csv">  
+                <button name="import_csv">Importar CSV</button>          
+            </article>
+            <article>
+                <h3>Exportar a CSV</h3>
+                <p>
+                    Esta accion exportada la base de datos al completo
+                    a un fichero database.csv
+                </p>
+                <button name="export_csv">Exportar a CSV</button>
+            </article>
+        </form>
+    </section>
 </body>
 </html>

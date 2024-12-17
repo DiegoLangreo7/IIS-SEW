@@ -11,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <link rel="stylesheet" type="text/css" href="css/article_element.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/noticias.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/noticias.js" defer></script>
 </head>    
 <body>
     <header>
@@ -28,20 +28,20 @@
             <a href="juegos.html">Juegos</a>
         </nav>
     </header>
+    <p>
+        Estás en: <a href="index.html">Inicio</a> >>> Noticias
+    </p>
     <main>
-        <p>
-            Estás en: <a href="index.html">Inicio</a> >>> Noticias
-        </p>
             <h2>Noticias</h2>
             <section> 
                 <h3>Ver Noticias</h3>
             </section>
             <article>
-                <h3>Introducir noticia manualmente</h3>
+                <h4>Introducir noticia manualmente</h4>
                 <button onclick="noticia.generateFormNotice()">Crear Noticia</button>         
             </article>
             <article>
-                <h3>Introducir noticia por fichero</h3>
+                <h4>Introducir noticia por fichero</h4>
                 <input type="file" onchange="noticia.readInputFile(this.files);">  
             </article>
     </main>

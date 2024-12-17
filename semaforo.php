@@ -87,12 +87,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="Juego de tiempo de reacción de F1">
     <meta name="keywords" content="html, css, javascript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
     <title>Semáforo F1 - Juego de Reacción</title>    
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <link rel="stylesheet" href="css/semaforo_grid.css">
-    <script src="js/semaforo.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/semaforo.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 
 </head>
 <body>
@@ -123,6 +124,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <li>
             <a href="api.html">Resultados ultima carrera</a>
         </li>
+        <li>
+			<a href="libre.php">Ejercicio libre</a>
+		</li>
     </ul>
     <main>
         <!-- Aquí es donde se generarán los elementos dinámicamente -->

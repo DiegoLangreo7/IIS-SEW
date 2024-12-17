@@ -14,6 +14,7 @@ class Memoria {
         this.lockBoard = false;
         this.firstCard = null;
         this.secondCard = null;
+        this.clickCount = 0;
 
         this.createElements();
         this.addEventListeners();
@@ -42,7 +43,7 @@ class Memoria {
             const card = document.createElement('article');
             card.setAttribute('data-element', element);
             card.innerHTML = `
-                <h4>Memory Card</h4>
+                <h4>Tarjeta de Memoria</h4>
                 <img src="${src}" alt="${element}">
             `;
             memoryCardsContainer.appendChild(card);
@@ -66,6 +67,7 @@ class Memoria {
     flipCard(card) {
         if (this.lockBoard || card === this.firstCard || card.getAttribute("data-state") === "revealed") return;
 
+        this.clickCount++;
         card.setAttribute('data-state', 'flip');
 
         if (!this.hasFlippedCard) {
@@ -82,21 +84,24 @@ class Memoria {
         const isMatch = this.firstCard.getAttribute("data-element") === this.secondCard.getAttribute("data-element");
 
         isMatch ? this.disableCards() : this.unflipCards();
+
+        // Comprobar si se ha completado el juego después de un emparejamiento
+        if (isMatch) {
+            this.checkGameCompletion();
+        }
     }
 
     disableCards() {
-	    this.firstCard.setAttribute("data-state", "revealed");
+        this.firstCard.setAttribute("data-state", "revealed");
         this.secondCard.setAttribute("data-state", "revealed");
 
         this.firstCard.removeEventListener("click", this.flipCard.bind(this, this.firstCard));
         this.secondCard.removeEventListener("click", this.flipCard.bind(this, this.secondCard));
 
-
         setTimeout(() => {
             this.resetBoard();
         }, 100); 
     }
-
 
     unflipCards() {
         setTimeout(() => {
@@ -110,11 +115,32 @@ class Memoria {
         [this.hasFlippedCard, this.lockBoard, this.firstCard, this.secondCard] = [false, false, null, null];
     }
 
+    checkGameCompletion() {
+        const allRevealed = this.cards.every(card => card.getAttribute("data-state") === "revealed");
+
+        if (allRevealed) {
+            this.deleteHelp();
+            this.showCompletionMessage();
+        }
+    }
+
+    showCompletionMessage() {
+        const main = document.querySelector('main');
+        const completionMessage = document.createElement("section");
+        completionMessage.innerHTML = `
+            <h5>¡Felicidades!</h5>
+            <p>Has completado el juego de memoria en ${this.clickCount} clics. ¡Gran trabajo!</p>
+        `;
+        main.appendChild(completionMessage);
+        completionMessage.scrollIntoView({ behavior: 'smooth' });
+    }
+
     showHelp() {
         this.deleteHelp();
         const ayudaContainer = document.createElement("section");
     
         ayudaContainer.innerHTML = `
+            <h5>¿Cómo Jugar?</h5>
             <ul>
                 <li>Haz clic en una carta para voltearla.</li>
                 <li>Encuentra su pareja volteando otra carta.</li>
@@ -129,11 +155,10 @@ class Memoria {
     
         ayudaContainer.scrollIntoView({ behavior: 'smooth' });
     }
-    
 
-    createBottonHelp(){
+    createBottonHelp() {
         const helpButton = document.createElement("button");
-        helpButton.innerHTML = "¿Como Jugar?";
+        helpButton.innerHTML = "¿Cómo Jugar?";
         helpButton.onclick = () => this.showHelp();
     
         const section = document.querySelector('section:nth-of-type(1)');

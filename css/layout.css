@@ -44,8 +44,17 @@
         width: 100%; 
     }
 
+    /**Especifidad 0-0-4**/
     main article section p {
         grid-column: span 1; 
+    }
+}
+
+@media (max-width: 1240px) {
+    
+    /**Especifidad 0-0-2**/
+    body > p {
+        display: none;
     }
 
 }

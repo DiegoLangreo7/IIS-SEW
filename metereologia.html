@@ -11,8 +11,7 @@
         <link rel="stylesheet" type="text/css" href="css/estilo.css" />
         <link rel="stylesheet" type="text/css" href="css/layout.css" />
         <link rel="stylesheet" type="text/css" href="css/article_element.css" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-        <script src="js/pais.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     </head>
 <body>
     <header>
@@ -33,17 +32,7 @@
     </p> 
     <main>  
         <h2>Información sobre Italia</h2>
-        <script>
-				pais.inicializar("Circuito de Monza", "República Parlamentaria", "45.6150° N, 9.2816° E", "Catolicismo apostólico y romano");
-
-					document.write("<h3>Datos del País:</h3>");
-					document.write("<p>Nombre: " + pais.obtenerNombre() + "</p>");
-					document.write("<p>Capital: " + pais.obtenerCapital() + "</p>");
-					document.write("<h4>Información Secundaria:</h4>");
-					document.write(pais.obtenerInformacionSecundaria());
-					pais.escribirCoordenadas(); 
-        </script>
-
+        <script src="js/pais.js" defer></script>
         <section> 
             <h3>Previsión meteorológica</h3>
         </section>

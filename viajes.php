@@ -11,7 +11,7 @@ class Carrusel {
 
     public function obtenerFotos() {
         $api_key = '3ff5c54cc98787d62f7d75efb0f3852e';
-        $tags = urlencode("{$this->pais},{$this->capital}");
+        $tags = urlencode("{$this->pais}");
         $url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key={$api_key}&tags={$tags}&per_page=10&format=json&nojsoncallback=1";
 
         $respuesta = file_get_contents($url);
@@ -80,8 +80,8 @@ $fotos = $carrusel->obtenerFotos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU" async></script>
     <script src="js/viajes.js" defer></script>
 
 </head>	

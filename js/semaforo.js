@@ -39,6 +39,10 @@ class Semaforo {
     createButtons(mainElement) {
         const buttonSection = document.createElement('section');
         
+        const text = document.createElement('h6');
+        text.textContent = 'Botones de Juego';
+        buttonSection.appendChild(text);
+
         this.startButton = document.createElement('button');
         this.startButton.textContent = 'Arranque';
         this.startButton.addEventListener('click', () => {
@@ -71,7 +75,7 @@ class Semaforo {
                     return this.difficulty;
             }
         };
-        
+    
         const form = $(`
             <form action='#' method='post' name='record'>
                 <h4>Registrar tu record</h4>
@@ -86,8 +90,15 @@ class Semaforo {
                 <button type="submit">Guardar</button>
             </form>
         `);
-               
+    
         $('main').append(form);
+    
+        setTimeout(() => {
+            const formElement = document.querySelector('form');
+            if (formElement) {
+                formElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100); 
     
         $('form').on('submit', (e) => {
             e.preventDefault();
@@ -96,7 +107,6 @@ class Semaforo {
             const apellidos = $('input:nth-of-type(2)').val();
             const nivel = $('input:nth-of-type(3)').val();
             const tiempo = $('input:nth-of-type(4)').val();
-
     
             $.ajax({
                 type: "POST",
@@ -118,6 +128,7 @@ class Semaforo {
             });
         });
     }
+    
 
     findTopScores(level) {
         $.ajax({

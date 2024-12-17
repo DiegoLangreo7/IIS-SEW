@@ -7,6 +7,7 @@
     }
 }
 
+/*Warnign de refenicion de background-color, por supuesto controlado*/
 @keyframes out {
     from {
         background-color: #B30600;
@@ -35,7 +36,6 @@ main h3 {
 
 /* Contenedor de las luces del semáforo (segunda fila) */
 main:nth-of-type(2) {
-    grid-row: 2; 
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 0.5vw; 
@@ -49,43 +49,44 @@ div {
     border: 0.5vw solid #000;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
-    display: flex; /* Activamos el modelo de flexbox */
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }
 
 /* Sección de los botones ocupa toda la tercera fila */
 main section {
     grid-column: span 4;
-    display: flex;
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    gap: 2em; /* Espacio entre los botones */
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+main section h6 {
+    grid-column: span 2;
+    text-align: center;
+    font-size: 1em;
 }
 
 /* Estilo para los botones con tamaño fijo */
 button {
     padding: 0.8em 2em;
-    color: white;
-    background-color: #A9A9A9;
     border: none;
     border-radius: 0.5em;
     box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 10em; /* Ancho fijo */
-    height: 4em; /* Altura fija */
-}
-
-/* Efecto hover en el botón */
-button:hover {
-    background-color: #D3D3D3;
+    width: 10em;
+    height: 4em; 
+    grid-column: span 1;
+    margin: 0 auto; 
 }
 
 /* Deshabilitar el hover y el cursor en los botones deshabilitados */
 button:disabled {
     cursor: not-allowed;
-    background-color: #A9A9A9;
     box-shadow: none;
 }
 
@@ -139,7 +140,6 @@ main.unload div {
 
 table {
     font-size: 1.2rem;
-    grid-row: 4; 
     grid-column: span 4; 
     width: 100%; 
     border-collapse: collapse;
@@ -156,7 +156,6 @@ th:nth-child(4), td:nth-child(4) {
 }
 
 form {
-    grid-row: 4; 
     grid-column: span 4; 
     display: flex;
     flex-direction: column;
@@ -193,10 +192,9 @@ form button[type="submit"] {
     font-size: 1.2em; 
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; 
+    width: 40%; 
 }
 
-/* Efecto hover en el botón */
 form button[type="submit"]:hover {
     background-color: #0056b3;
 }

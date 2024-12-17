@@ -31,9 +31,9 @@ class Agenda {
                 
                 <article class="carrera">
                     <h3>${nombreCarrera}</h3>
-                    <p><strong>Circuito:</strong> ${circuito}</p>
-                    <p><strong>Coordenadas:</strong> ${coordenadas}</p>
-                    <p><strong>Fecha y hora:</strong> ${fecha}</p>
+                    <p>Circuito: ${circuito}</p>
+                    <p>Coordenadas: ${coordenadas}</p>
+                    <p>Fecha y hora: ${fecha}</p>
                 </article>
             `;
             $("section").append(carreraHTML);

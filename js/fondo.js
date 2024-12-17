@@ -27,11 +27,9 @@ class Fondo {
         if (figureFotoPredeterminada) {
             figureFotoPredeterminada.remove();
         }
+        
+        $("body").css({ "background-image": `url("${img_url}")`,
+                        "background-size": "cover"});
 
-        const fondo = document.getElementsByTagName('body')[0];
-        fondo.style.backgroundImage = `url('${img_url}')`;
-        fondo.style.backgroundSize = 'cover';
-        fondo.style.backgroundPosition = 'center';
-        fondo.style.backgroundRepeat = 'no-repeat';
     }
 }

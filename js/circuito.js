@@ -75,7 +75,7 @@ class Circuito {
                                     }).join('<br>');
                                 const sector = tramo.getElementsByTagName("uni:sector")[0]?.textContent || "Desconocido";
                                 return `<li>
-                                            <strong>Tramo ${index + 1}</strong>: ${distancia} ${unidadDistancia}<br>
+                                            Tramo ${index + 1}: ${distancia} ${unidadDistancia}<br>
                                             Coordenadas:<br>${coordenadas}<br>
                                             Sector: ${sector}
                                         </li>`;
@@ -83,7 +83,7 @@ class Circuito {
         
                         const tablaDatos = `
                             <h4>Información del Circuito</h4>
-                            <table border="1">
+                            <table>
                                 <tr><th>Nombre</th><td>${nombre}</td></tr>
                                 <tr><th>Longitud</th><td>${longitud} ${unidadLongitud}</td></tr>
                                 <tr><th>Anchura</th><td>${anchura} ${unidadAnchura}</td></tr>
