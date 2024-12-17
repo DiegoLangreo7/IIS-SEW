@@ -42,7 +42,9 @@
             </article>
             <article>
                 <h4>Introducir noticia por fichero</h4>
-                <input type="file" onchange="noticia.readInputFile(this.files);">  
+                <p><label for="archivo">Introduzca el archivo correspondiente:</label>
+                    <input type="file" id="archivo" onchange="noticia.readInputFile(this.files);"></p>
+                <input type="file" ">  
             </article>
     </main>
 </body>
