@@ -145,8 +145,10 @@ p, pre{
     margin: 1.25em 0;
 }
 
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
 /*Especificidad del selector 0-0-2*/
 p a {
+    color: #3A3AE9;
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
 }
@@ -154,7 +156,7 @@ p a {
 /*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
 /*Especificidad del selector 0-1-2*/
 p a:hover {
-    color: #007BFF;
+    color: #1818DC;
     text-decoration: underline;
     cursor: pointer;
 }
