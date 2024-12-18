@@ -188,7 +188,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <title>F1 Desktop - por poner</title>
+    <title>F1 Desktop - Informacion Equipos</title>
     <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Diego García" />
     <meta name="description" content="" />

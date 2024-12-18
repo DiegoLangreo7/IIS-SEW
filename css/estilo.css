@@ -438,3 +438,9 @@ html > body > header + p + main > h2 + article button {
    padding: 0.8rem 1.6rem;
    grid-column: span 5;
 }
+
+/* Warning no hay color de primer plano contemplado */
+/*Especificidad del selector 0-1-0*/
+:fullscreen {
+    background-color: #FFFFFF; 
+}

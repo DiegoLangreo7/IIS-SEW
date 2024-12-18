@@ -27,7 +27,7 @@ class Carrusel {
                 $photo_id = $foto['id'];
                 $secret_id = $foto['secret'];
 
-                $photo_url = "https://farm{$farm_id}.staticflickr.com/{$server_id}/{$photo_id}_{$secret_id}.jpg";
+                $photo_url = "https://farm{$farm_id}.staticflickr.com/{$server_id}/{$photo_id}_{$secret_id}_z.jpg";
                 $this->fotos[] = $photo_url;
             }
         }

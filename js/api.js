@@ -96,15 +96,19 @@ class API {
 
                 mainElement.appendChild(raceContainer);
 
+                const titleFavorite = document.createElement("h4");
+                titleFavorite.textContent = "Tu Carrera Favorita";
+                raceContainer.appendChild(titleFavorite);
+
+                const textoCircuito = this.obtenerCircuitoFavorito();
+                const circuitoFavoritoP = document.createElement("p");
+                circuitoFavoritoP.textContent = textoCircuito;
+                raceContainer.appendChild(circuitoFavoritoP);
+
                 const saveButton = document.createElement("button");
                 saveButton.textContent = "Guardar carrera como favorita";
                 saveButton.addEventListener("click", () => this.guardarCircuitoFavorito(`${race.raceName} - ${race.Circuit.circuitName}`));
                 raceContainer.appendChild(saveButton);
-
-                const loadButton = document.createElement("button");
-                loadButton.textContent = "Mostrar carrera favorita";
-                loadButton.addEventListener("click", () => this.obtenerCircuitoFavorito());
-                raceContainer.appendChild(loadButton);
 
                 const fullscreenButton = document.createElement("button");
                 fullscreenButton.textContent = "Ver ubicación en Pantalla Completa";
@@ -130,20 +134,24 @@ class API {
 
     guardarCircuitoFavorito(circuito) {
         localStorage.setItem("circuitoFavorito", circuito);
-        alert("¡Circuito favorito guardado!"); 
-        console.log(`Circuito favorito guardado!`);
+        const textoCircuito = this.obtenerCircuitoFavorito();
+        const article = document.querySelector("article");
+    
+        const existingP = article.querySelectorAll("p");
+        const lastP = existingP[existingP.length - 2];
+    
+        if (lastP) {
+            lastP.textContent = textoCircuito;
+        } 
     }
+    
 
     obtenerCircuitoFavorito() {
         const circuitoFavorito = localStorage.getItem("circuitoFavorito");
         if (circuitoFavorito) {
-            alert(`El circuito favorito guardado es:  ${circuitoFavorito}`); 
-            console.log(`Circuito favorito: ${circuitoFavorito}`);
-            return circuitoFavorito;
+            return `El circuito favorito guardado es: ${circuitoFavorito}`;
         } else {
-            alert("No se ha guardado ningún circuito favorito.");
-            console.log("No se ha guardado ningún circuito favorito.");
-            return null;
+            return `No se ha guardado ningún circuito favorito.`;
         }
     }
 
@@ -198,7 +206,7 @@ class API {
     /// API FULLSCREEN
 
     activarPantallaCompleta() {
-        const elemento = document.querySelector("section"); 
+        const elemento = document.querySelector("section");
         if (elemento.requestFullscreen) {
             elemento.requestFullscreen();
         } else if (elemento.mozRequestFullScreen) { // Firefox
@@ -217,7 +225,7 @@ class API {
             const distancia = this.calcularDistancia(this.latitud, this.longitud, this.circuitLatitud, this.circuitLongitud);
             const distanceText = document.createElement('p');
             distanceText.textContent = `Distancia al circuito de la carrera: ${distancia.toFixed(2)} km`;
-            const section = document.querySelector("section");
+            const section =  document.querySelector("section");
             section.appendChild(distanceText);
         } else {
             console.error("No se pudo calcular la distancia. Faltan coordenadas.");
@@ -241,3 +249,8 @@ class API {
     }
     
 }
+
+$(document).ready(function() {
+    const api = new API();
+    api.mostrarUltimaCarrera();  
+});

@@ -33,3 +33,8 @@ class Fondo {
 
     }
 }
+
+$(document).ready(function() {
+    const fondo = new Fondo("Italia", "Roma", "Monza");
+    fondo.obtenerImagenFlickr();  
+});

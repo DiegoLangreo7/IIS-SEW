@@ -174,11 +174,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main>
         <!-- Aquí es donde se generarán los elementos dinámicamente -->
     </main>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const semaforo = new Semaforo();
-        });
-    </script>
 </body>
 </html>

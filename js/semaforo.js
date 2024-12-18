@@ -216,3 +216,7 @@ class Semaforo {
         this.clic_moment = null;
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const semaforo = new Semaforo();
+});

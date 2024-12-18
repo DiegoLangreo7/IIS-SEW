@@ -84,7 +84,7 @@ class Pais {
                     const detalles = `
                         <p>${new Date(Date.parse($(pronostico).attr("from"))).toLocaleTimeString("es-ES")}</p>
                         <ul>
-                            <li><img src="http://openweathermap.org/img/w/${atributos('symbol', 'var')}.png" alt="${atributos('symbol', 'name')}"></li>
+                            <li><img src="https://openweathermap.org/img/w/${atributos('symbol', 'var')}.png" alt="${atributos('symbol', 'name')}"></li>
                             <li>Temperatura: ${atributos('temperature', 'value')} °C</li>
                             <li>Humedad: ${atributos('humidity', 'value')}%</li>
                             <li>Descripción: ${atributos('symbol', 'name')}</li>

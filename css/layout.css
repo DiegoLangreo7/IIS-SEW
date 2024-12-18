@@ -58,6 +58,11 @@
     main article section p {
         grid-column: span 1; 
     }
+
+    /*Especificidad del selector 0-0-7*/
+    html > body > header + p +main > h2 + article {
+        height: 25vh;
+    }
 }
 
 @media (max-width: 1240px) {
@@ -65,6 +70,12 @@
     /*Especifidad 0-0-2*/
     body > p {
         display: none;
+    }
+
+    /*Warning, redefinicion de heihg, contemplada*/
+    /*Especificidad del selector 0-0-7*/
+    html > body > header + p +main > h2 + article {
+        height: 50vh;
     }
 
 }
