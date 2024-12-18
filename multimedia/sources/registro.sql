@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-12-2024 a las 14:44:27
+-- Tiempo de generación: 18-12-2024 a las 00:27:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `registro`
 --
 
-CREATE TABLE `registro` (
+CREATE TABLE IF NOT EXISTS `registro` (
   `id` int(11) NOT NULL,
   `nombre` text NOT NULL,
   `apellidos` text NOT NULL,
@@ -44,21 +44,10 @@ INSERT INTO `registro` (`id`, `nombre`, `apellidos`, `nivel`, `tiempo`) VALUES
 (2, 'Diego ', 'Garcia Gonzalez', 'Dificil', 167),
 (3, 'Diego', 'Garcia', 'Dificil', 153),
 (4, 'Diego', 'King', 'Dificil', 73),
-(5, 'Diego', 'Cervero', 'Facil', 47),
-(6, 'Diego', 'Lentolinni', 'Medio', 757),
 (7, 'Diego', 'Garcia Glez', 'Facil', 238),
 (8, 'MCarmen', 'Fernandez', 'Medio', 93),
 (9, 'Paco', 'Gutierrez', 'Dificil', 284),
-(10, 'Diego', 'Garcia att2', 'Medio', 241),
-(11, 'Diego', 'Garcia att3', 'Medio', 678),
-(12, 'Diego', 'Garcia att3', 'Medio', 80),
-(13, 'asdfasdfad', 'asdfasfasdf', 'Dificil', 97),
-(14, 'asdfa', 'sdfad', 'Dificil', 360),
-(15, 'asdf', 'asdfa', 'Facil', 1368),
-(16, 'fausto', 'claveria', 'Dificil', 238),
-(17, 'AFASDF', 'ASDFA', 'Medio', 213),
-(18, 'asdf', 'asd', 'Facil', 121),
-(19, 'a', 'a', 'Medio', 200);
+(16, 'fausto', 'claveria', 'Dificil', 238);
 
 --
 -- Índices para tablas volcadas
@@ -78,7 +67,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

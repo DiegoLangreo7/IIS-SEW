@@ -81,7 +81,7 @@ $fotos = $carrusel->obtenerFotos();
     <link rel="stylesheet" type="text/css" href="css/estilo.css" />
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU" async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU6Pk-2anDmu4HGU_v7Oi89jbuOvxRGqE" async></script>
     <script src="js/viajes.js" defer></script>
 
 </head>	

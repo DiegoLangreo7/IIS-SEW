@@ -154,7 +154,7 @@ class API {
     generateUserStaticMap(){   
         const section = document.querySelector("section");
         if (!this.error) {
-            var apiKey = "&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU";
+            var apiKey = "&key=AIzaSyBU6Pk-2anDmu4HGU_v7Oi89jbuOvxRGqE";
             var url = "https://maps.googleapis.com/maps/api/staticmap?";
             var centro = "center=" + this.latitud + "," + this.longitud;
             var zoom ="&zoom=15";

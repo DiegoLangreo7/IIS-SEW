@@ -1,50 +1,60 @@
 /* Diego García González UO294255 */
 
 @media (max-width: 799px) {
+    /*Especificidad 0-0-2*/
     header nav {
         flex-direction: column;
     }
 
+    /*Especificidad 0-0-1*/
     body {
         background-size: contain; 
         background-position: top;
     }
 
+    /*Especificidad 0-0-3*/
     header nav a {
         margin: 0.5em 0;
     }
 
+    /*Especificidad 0-1-1*/
     p.breadcrumbs {
         display: none;
     }
 
+    /*Especificidad 0-0-1*/ 
     h1, h2, h3, h4, h5, h6 , label{
         text-align: center;
     }
 
+    /*Especificidad 0-0-2*/
     article h3 {
-        font-size: 1.1rem;  /* Reduce el tamaño de los títulos */
+        font-size: 1.1rem;  
     }
 
+    /*Especificidad 0-0-2*/
     article li {
-        font-size: 0.9rem;  /* Tamaño de fuente más pequeño en pantallas pequeñas */
-        padding: 0.75rem;  /* Reduce el padding en los elementos de la lista */
+        font-size: 0.9rem;  
+        padding: 0.75rem; 
     }
 
+    /*Especificidad 0-0-3*/
     main article section {
         grid-template-columns: 1fr;
         grid-template-rows: 0.1fr 1fr 1fr 0.1fr;
     }
 
+    /*Especificidad 0-0-4*/
     main article section h4 {
         grid-column: span 1; 
     }
 
+    /*Especificidad 0-0-4*/
     main article section img {
         width: 100%; 
     }
 
-    /**Especifidad 0-0-4**/
+    /*Especifidad 0-0-4*/
     main article section p {
         grid-column: span 1; 
     }
@@ -52,7 +62,7 @@
 
 @media (max-width: 1240px) {
     
-    /**Especifidad 0-0-2**/
+    /*Especifidad 0-0-2*/
     body > p {
         display: none;
     }

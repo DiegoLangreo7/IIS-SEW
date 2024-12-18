@@ -1,0 +1,43 @@
+"Tabla: coches"
+id,nombre,motor,id_equipo
+1,Renault,A524,1
+2,"Honda RBPT",RB20,2
+3,Mercedes,W15,3
+4,Mercedes,AMR24,4
+
+"Tabla: equipos"
+id,nombre,base,jefe,fundation_date,world_championships,pole_positions,vueltas_rapidas
+1,Alpine,"Enstone, Reino Unido","Oliver Oakes",1955-06-22,2,20,16
+2,RedBull,"Milton Keynes, United Kingdom","Christian Horner",1997-11-15,6,103,99
+3,Mercedes,"Brackley, Reino Unido","Toto Wolff",1954-07-04,8,133,100
+4,"Aston Martin","Silverstone, United Kingdom","Mike Krack",1913-08-23,0,1,3
+
+"Tabla: es_patrocinador"
+id_equipo,id_patrocinador
+
+"Tabla: patrocinador"
+id,nombre_patrocinador
+1,Pirelli
+2,BWT
+3,"Renault E-Tech"
+4,Castrol
+5,Microsoft
+6,Cognizant
+7,Aramco
+8,Pirelli
+9,crypto.com
+10,XP
+11,Petronas
+12,Ineos
+13,Crowdstrike
+14,TeamViewer
+15,UBS
+16,"Built For Athletes"
+17,Castore
+18,Pirelli
+19,CashApp
+20,Walmart
+
+"Tabla: pilotos"
+id,n_pista,nombre,nacionalidad,fecha_nacimiento,id_equipo
+

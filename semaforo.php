@@ -10,6 +10,49 @@ class Record {
         $this->user = "DBUSER2024";  
         $this->pass = "DBPSWD2024"; 
         $this->dbname = "records";   
+
+        $this->checkAndImportSQL(); 
+    }
+
+    public function createTableRegistro($filePath) {
+        $db = new mysqli($this->server, $this->user, $this->pass);
+    
+        if ($db->connect_error) {
+            die("Error: Conexión fallida.");
+        }
+    
+        if (!$db->select_db($this->dbname)) {
+            $db->query("CREATE DATABASE IF NOT EXISTS {$this->dbname}");
+            $db->select_db($this->dbname);
+        }
+    
+        if (file_exists($filePath)) {
+            $sql = file_get_contents($filePath);
+            if ($db->multi_query($sql)) {
+                do {
+                    if ($result = $db->store_result()) {
+                        $result->free();
+                    }
+                } while ($db->next_result());
+            } else {
+                echo "Error al ejecutar el archivo SQL: " . $db->error;
+            }
+        } else {
+            echo "El archivo SQL no existe.";
+        }
+    
+        $db->close();
+    }
+    
+
+    private function checkAndImportSQL() {
+        $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+
+        $tableExists = $db->query("SHOW TABLES LIKE 'registro'");
+        if ($tableExists->num_rows === 0) {
+            $this->createTableRegistro('multimedia\sources\registro.sql');
+        }
+        $db->close();
     }
 
     public function insertRecord($nombre, $apellidos, $nivel, $tiempo) {
@@ -125,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="api.html">Resultados ultima carrera</a>
         </li>
         <li>
-			<a href="libre.php">Ejercicio libre</a>
+			<a href="php/libre.php">Ejercicio libre</a>
 		</li>
     </ul>
     <main>

@@ -28,7 +28,7 @@ class Noticia {
                 if (contadorNoticias > 0) {
                     const articles = document.querySelectorAll("article");
                     const articleInputFile = articles[articles.length - 1];
-                    const mensaje = `<p>Has introducido ${contadorNoticias} noticias con éxito.</p>`;
+                    const mensaje = `<pre>Has introducido ${contadorNoticias} noticias con éxito.</pre>`;
                     articleInputFile.insertAdjacentHTML("beforeend", mensaje);
                 }
             };
@@ -37,6 +37,7 @@ class Noticia {
     }
     
     generateFormNotice() {
+        this.deleteParagraph();
         const form = $(`
             <form>
                 <label for="titulo">Titular:</label>
@@ -85,12 +86,12 @@ class Noticia {
                 </ul>
             </article>`;
             section.insertAdjacentHTML("beforeend", noticia);
-
             this.endForm();
         }
     }
 
     endForm(){
+
         const articles = document.querySelectorAll("article");
         const articleCreateNotice = articles[articles.length - 2];
 
@@ -99,18 +100,17 @@ class Noticia {
         createButton.addEventListener("click", () => this.generateFormNotice());
         articleCreateNotice.appendChild(createButton);
 
+        const mensaje = document.createElement("pre");
+        mensaje.textContent = "Noticia creada con éxito";
+        articleCreateNotice.appendChild(mensaje);
+
         const form = articleCreateNotice.querySelector("form");
-        form.remove();
-
-        this.deleteParagraph();
-
-        const mensaje = `<p>Noticia creada con exito</p>`;
-        articleCreateNotice.insertAdjacentHTML("beforeend", mensaje);
+        form.remove();        
     }
 
     deleteParagraph(){
         $(document).ready(function() {
-            $("article p").remove();
+            $("article pre").remove();
         });
     }
 }

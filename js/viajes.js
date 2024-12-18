@@ -61,7 +61,7 @@ class Viajes {
       section.innerHTML = "";
       section.insertAdjacentHTML("beforeend", "<h3>Ubicacion actual</h3>");
       if (!this.error) {
-          const apiKey = "&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU";
+          const apiKey = "&key=AIzaSyBU6Pk-2anDmu4HGU_v7Oi89jbuOvxRGqE";
           const url = "https://maps.googleapis.com/maps/api/staticmap?";
           const centro = "center=" + this.latitud + "," + this.longitud;
           const zoom ="&zoom=15";

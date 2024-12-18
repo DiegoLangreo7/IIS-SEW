@@ -1,5 +1,6 @@
 /* Diego García González UO294255 */
 
+/*Especificidad del selector 0-0-1*/
 section {
     text-align: center;
     display: grid;
@@ -9,17 +10,23 @@ section {
     margin-bottom: 4em;
 }
 
+/*Especificidad del selector 0-0-1*/
+
 article {
     margin: 0;
     padding: 1.5rem;
     border-radius: 0.75rem;
 }
 
+/*Especificidad del selector 0-0-1*/
+
 h2, h3 {
     grid-column: span 5;
     text-align: center;
     padding-bottom: 1rem;
 }
+
+/*Especificidad del selector 0-0-1*/
 
 h5 {
     grid-column: span 5;
@@ -29,6 +36,8 @@ h5 {
     margin-bottom: 0.75rem;
     border-bottom: 2px solid #ddd;
 }
+
+/*Especificidad del selector 0-0-1*/
 
 h6 {
     text-align: center;
@@ -41,6 +50,7 @@ h6 {
     border-radius: 0.5rem;
 }
 
+/*Especificidad del selector 0-0-1*/
 button, input {
     margin: 1rem auto 2rem auto;
     padding: 0.8rem 1.6rem;
@@ -51,16 +61,20 @@ button, input {
     grid-column: span 5;
 }
 
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-1*/
 button:hover {
     background-color: #A30500;
 }
 
-ul {
+/*Especificidad del selector 0-0-2*/
+article ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
+/*Especificidad del selector 0-0-2*/
+article li {
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: center;
@@ -71,16 +85,19 @@ li {
 
 @media (max-width: 799px) {
 
+    /*Especificidad del selector 0-0-1*/
     section {
         /*Warning de redefinicion controlado*/
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    /*Especificidad del selector 0-0-1*/
     article {
         grid-column: span 1;
     }
 
+    /*Especificidad del selector 0-0-1*/
     h2, h3, h5 {
         /*Warning de redefinicion controlado*/
         grid-column: span 1;
@@ -88,23 +105,28 @@ li {
 }
 
 @media (max-width: 1240px) and (min-width: 800px) {
+    /*Especificidad del selector 0-0-1*/
     section {
         /*Warning de redefinicion controlado*/
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 
+    /*Especificidad del selector 0-0-1*/
     article {
         /*Warning de redefinicion controlado*/
         grid-column: span 1;
     }
 
+    /*Especificidad del selector 0-0-1*/
     h2, h3, h5 {
         /*Warning de redefinicion controlado*/
         grid-column: span 3;
     }
 }
 
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-1*/
 form {
     grid-row: 4;
     grid-column: span 4;
@@ -123,6 +145,7 @@ form {
 }
 
 /* Estilo de los campos de entrada */
+/*Especificidad del selector 0-0-2*/
 form input {
     padding: 0.5em;
     border: 0.1em solid #ccc;
@@ -133,6 +156,7 @@ form input {
 }
 
 /* Botón de envío */
+/*Especificidad del selector 0-1-2*/
 form button[type="submit"] {
     padding: 0.75em;
     border: none;
@@ -143,6 +167,8 @@ form button[type="submit"] {
     cursor: pointer;
 }
 
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-2*/
 form button[type="submit"]:hover {
     background-color: #0056b3;
 }

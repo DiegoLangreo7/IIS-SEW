@@ -1,18 +1,14 @@
-/* Estilo para el cuerpo */
-body {
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad 0-0-2*/
 form label {
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: #000000;
 }
 
-/* Estilo de inputs */
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad 0-1-1*/
 input[type="file"], select {
     display: block;
     margin: 1rem auto;
@@ -23,11 +19,14 @@ input[type="file"], select {
     cursor: pointer;
 }
 
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad 0-1-1*/
 input[type="file"]:hover, select:hover {
     background-color: #F9F9F9;
 }
 
 /* Estilo del grid layout para el section */
+/*Especificidad 0-0-1*/
 form {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -35,25 +34,37 @@ form {
     gap: 1rem;
 }
 
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad 0-0-2*/
 form article {
     border-radius: 1rem; 
     box-shadow: 0 0.25em 0.375em rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
 
+/*Especificidad 0-0-3*/
 form article button {
     display: flex;
     justify-content: center; 
     align-items: center; 
 }
 
-form article p {
+/*Especificidad 0-0-3*/
+form article p{
     font-weight: bold;
     margin: 1rem;
 }
 
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad 0-1-2*/
+article p:nth-of-type(2) {
+    color: red;
+    margin: 1rem;
+}
+
 /* Media query para dispositivos móviles */
-@media (max-width: 799px) {
+@media (max-width: 830px) {
+    /*Especificidad 0-0-1*/
     form {
         /* Esto es un warning controlado, "redefinicion de grid-template-..."*/
         grid-template-columns: 1fr; 

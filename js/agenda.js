@@ -29,7 +29,7 @@ class Agenda {
 
             const carreraHTML = `
                 
-                <article class="carrera">
+                <article>
                     <h3>${nombreCarrera}</h3>
                     <p>Circuito: ${circuito}</p>
                     <p>Coordenadas: ${coordenadas}</p>
