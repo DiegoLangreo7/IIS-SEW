@@ -173,7 +173,7 @@ class API {
             section.insertAdjacentHTML("beforeend", "<img src='" + this.imagenMapa + "' alt='Mapa estático de Google de la ubicación actual' />");
         }
         else{
-            section.insertAdjacentHTML("beforeend", `<p>${this.mensaje}</p>`);
+            section.insertAdjacentHTML("beforeend", `<pre>${this.mensaje}</pre>`);
         }
     }
 
