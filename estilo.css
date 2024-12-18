@@ -1,0 +1,448 @@
+/* Diego García González UO294255 */
+
+/*Especificidad del selector 0-0-1*/
+body {
+    font-family: Verdana, sans-serif; 
+    background-color: #FFFFFF; 
+    color: #20232A; 
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*Especificidad del selector 0-0-1*/
+header {
+    text-align: center;
+    padding-top: 1rem; 
+    padding-bottom: 1rem; 
+    background-color: #B30600; 
+    color: #FFFFFF;
+}
+
+/*Especificidad del selector 0-0-1*/
+h1,h2{
+    padding: 0.75rem;
+}
+
+/*Especificidad del selector 0-0-1*/
+h3 {
+    padding: 0.625rem;
+}
+
+/*Especificidad del selector 0-0-1*/
+h4,h5{
+    padding: 0.5rem;
+}
+
+/*Especificidad del selector 0-0-1*/
+h1 a {
+    background-color: #B30600;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/*Especificidad del selector 0-0-1*/
+section {
+    border-radius: 0.5em; 
+    padding: 1em; 
+    margin: 1em 0; 
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-1*/
+h2 { 
+    color: #20232A;
+}
+
+/*Especificidad del selector 0-0-1*/
+h3, h4 { 
+    background-color: #B30600;
+    color: #FFFFFF;
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-4*/
+body section li a:link {
+    color: #20232A;
+}
+  
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-4*/
+body section li a:hover {
+    background: #f0f0f0;
+}
+  
+/*Especificidad del selector 0-1-4*/
+body section li a:active {
+    background: #f0f0f0;
+    color: #FFFFFF;
+}
+
+/*Especificidad del selector 0-0-1*/
+dt {
+    font-weight: bold;
+}
+
+/*Especificidad del selector 0-0-2*/
+header nav {
+    display: flex; 
+    justify-content: center; 
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+
+/*Especificidad del selector 0-0-3*/
+header nav a {
+    color: #FFFFFF; 
+    margin: 0 1em; 
+    text-decoration: none; 
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+
+/*Especificidad del selector 0-1-3*/
+header nav a.active {
+    color: #FFFFFF; 
+    font-weight: bold; 
+    text-decoration: underline;
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+
+/*Especificidad del selector 0-1-3*/
+header nav a:hover {
+    background-color: #A30500; 
+}
+
+/*Especificidad del selector 0-0-2*/
+main > figure {
+    width: 100%;  
+    height: 100vh;  
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    margin: 0;
+    padding: 0;
+}
+
+/*Especificidad del selector 0-0-3*/
+main > figure > img {
+    width: 100%; 
+    height: 100%;  
+    object-fit: cover;  
+    object-position: center;  
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-1*/
+p, pre{
+    font-size: 1rem;
+    color: #20232A;
+    margin: 1.25em 0;
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-2*/
+p a {
+    color: #3A3AE9;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-2*/
+p a:hover {
+    color: #1818DC;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*Especificidad del selector 0-0-2*/
+main p {
+    font-size: 1rem;
+    margin: 0.625em 0;
+}
+
+/*Especificidad del selector 0-0-3*/
+main p label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3125em;
+    text-align: center;
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-1*/
+input {
+    display: block;
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 0.5rem;
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-1*/
+input[type="file"]{
+    display: block;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1em;
+    border: 0.1rem solid #aaaaaa;
+}
+
+/*Especificidad del selector 0-0-2*/
+section img {
+    display: block;         
+    max-width: 100%;        
+    height: auto;          
+    margin: 1em;        
+}
+
+/*Especificidad del selector 0-0-1*/
+label {
+    font-weight: bold;
+}
+
+/*Warning que no hay color de fondo, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-1*/
+::placeholder{
+    color: #545454;
+}
+
+/*Especificidad del selector 0-0-2*/
+article h3 {
+    font-size: 1.25rem;  
+    margin-bottom: 1rem; 
+    font-weight: bold;
+    word-wrap: break-word;  
+}
+
+/*Especificidad del selector 0-0-2*/
+article ul {
+    list-style-type: none;  
+    padding: 0;  
+    margin: 0;  
+}
+
+/*Especificidad del selector 0-0-2*/
+article li {
+    font-size: 1rem;
+    line-height: 1.6;  
+    color: #333;  
+    margin-bottom: 1rem;  
+    background-color: #f1f1f1;  
+    padding: 1rem;  
+    border-radius: 0.5rem;  
+    transition: background-color 0.3s ease;
+    word-wrap: break-word; 
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-2*/
+article li:hover {
+    background-color: #e1e1e1;  
+}
+
+/*Especificidad del selector 0-0-2*/
+article p {
+    font-size: 1rem;
+    line-height: 1.6;  
+    margin-bottom: 1rem;  
+}
+
+/*Especificidad del selector 0-0-2*/
+article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1rem; 
+}
+
+/*Especificidad del selector 0-0-1*/
+figcaption {
+    margin: 1rem; 
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-0-1*/
+table {
+    width: 100%;  
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #FFFFFF; 
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+/*Especificidad del selector 0-0-2*/
+table caption {
+    font-weight: bold; 
+    font-size: 1.25rem; 
+    text-align: center; 
+    margin-bottom: 0.5rem; 
+    padding: 0.5rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05rem; 
+  }
+
+/*Especificidad del selector 0-0-1*/
+th, td {
+    padding: 1rem; 
+    text-align: center;
+    border-bottom: 0.0625rem solid #ddd;
+}
+
+/*Especificidad del selector 0-0-1*/
+th {
+    background-color: #B30600; 
+    color: #FFFFFF; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    font-size: clamp(0.3rem, 2vw, 1.5rem);
+}
+
+/*Especificidad del selector 0-0-1*/
+td {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-1*/
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/*Warning que no hay color de primer plano, el color es heredado por cascada, warning controlado*/
+/*Especificidad del selector 0-1-1*/
+tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease; 
+}	  
+
+/*Especificidad del selector 0-0-2*/
+section > div {
+    width : 100%;
+    height : 65vh;
+    position: relative;
+}
+
+/*Especificidad del selector 0-0-3*/
+main article section{
+    display: grid;
+    grid-template-columns: auto; 
+    grid-template-rows: 0.1fr 1fr 0.1fr;
+    gap: 1em; 
+}
+
+/*Especificidad del selector 0-0-4*/
+main article section h4{
+    grid-column: span 2; 
+    text-align: center;
+}
+
+/*Especificidad del selector 0-0-4*/
+main article section img{
+    grid-column: span 1; 
+    text-align: center;
+}
+
+/*Especificidad del selector 0-0-4*/
+main article section p {
+    grid-column: span 2; 
+    text-align: center;
+    color : #FFFFFF;
+    background-color: #B30600; 
+    border-radius: 0.5rem;
+}
+
+/*Especificidad del selector 0-0-1*/
+button {
+    background-color: #B30600;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+}
+
+/*Especificidad del selector 0-0-3*/
+main article button {
+    display: block;
+    margin: 1rem auto 2rem auto; 
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 0.5rem;
+    grid-column: span 5;
+}
+
+/*Especificidad del selector 0-1-2*/
+article button:active {
+   transform: scale(1.1);
+}
+  
+/*Especificidad del selector 0-1-2*/
+article button:nth-of-type(2) {
+   top: 50%;
+   left: 2%;
+}
+  
+/*Especificidad del selector 0-1-2*/
+article button:nth-of-type(1) {
+   top: 50%;
+   right: 2%;
+}
+
+/* Carrusel de fotos */
+
+/*Especificidad del selector 0-0-7*/
+html > body > header + p +main > h2 + article {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+   overflow: hidden;
+}
+  
+/*Especificidad del selector 0-0-8*/
+html > body > header + p + main > h2 + article img {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   transition: all 0.5s;
+   object-fit: cover;
+   margin: 0rem;
+}
+  
+/*Especificidad del selector 0-0-8*/
+html > body > header + p + main > h2 + article button {
+   position: absolute;
+   width: 2em;
+   height: 2em;
+   padding: 0.5em;
+   z-index: 10;
+   cursor: pointer;
+   background-color: #FFFFFF;
+   font-size: 1em;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   color: #000;
+}
+
+/*Especificidad del selector 0-0-1*/
+ button, input {
+   margin: 1rem auto 2rem auto;
+   padding: 0.8rem 1.6rem;
+   grid-column: span 5;
+}
+
+/* Warning no hay color de primer plano contemplado */
+/*Especificidad del selector 0-1-0*/
+:fullscreen {
+    background-color: #FFFFFF; 
+}
