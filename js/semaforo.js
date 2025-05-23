@@ -118,12 +118,10 @@ class Semaforo {
                     tiempo: tiempo
                 },
                 success: (response) => {
-                    alert("¡Registro exitoso!");
                     $('form').remove();
                     this.findTopScores(nivel); 
                 },
                 error: () => {
-                    alert('Error al guardar el record.');
                 }
             });
         });
@@ -138,12 +136,9 @@ class Semaforo {
             success: (response) => {
                 if (response.status === "success") {
                     this.createTopResultsTable(response.top_results);
-                } else if (response.status === "error") {
-                    alert(response.message);
                 }
             },
             error: () => {
-                alert('Error al obtener los resultados.');
             }
         });
     }    

@@ -117,8 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
             botones[0].addEventListener("click", () => geolocalizacion.siguienteFoto());
             botones[1].addEventListener("click", () => geolocalizacion.anteriorFoto());
         }
-    } else {
-        console.error("No se encontró el elemento <article>");
     }
 });
 

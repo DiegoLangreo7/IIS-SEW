@@ -43,13 +43,11 @@ class API {
         return fetch(`${this.baseURL}/${endpoint}`)
             .then(response => {
                 if (!response.ok) {
-                    console.error("Error al obtener los resultados de la última carrera.");
                     return null;
                 }
                 return response.json();
             })
             .then(data => {
-                console.log("Datos de la última carrera:", data);  
                 return data.MRData.RaceTable.Races[0] || null;  
             });
     }
@@ -58,7 +56,6 @@ class API {
         this.obtenerUltimaCarrera()
             .then(race => {
                 if (!race) {
-                    console.log("No se encontró la última carrera.");
                     return;
                 }
                 const mainElement = document.querySelector('main');
@@ -126,7 +123,10 @@ class API {
                 this.activarPointerLock();
             })
             .catch(error => {
-                console.error("Error al mostrar la última carrera:", error);
+                const mainElement = document.querySelector('main');
+                const errorMensaje = document.createElement("p");
+                errorMensaje.textContent = "Ha habido un error al cargar los datos de la ultima carrera";
+                mainElement.appendChild(errorMensaje);
             });
     }
 
@@ -227,8 +227,6 @@ class API {
             distanceText.textContent = `Distancia al circuito de la carrera: ${distancia.toFixed(2)} km`;
             const section =  document.querySelector("section");
             section.appendChild(distanceText);
-        } else {
-            console.error("No se pudo calcular la distancia. Faltan coordenadas.");
         }
     }
 

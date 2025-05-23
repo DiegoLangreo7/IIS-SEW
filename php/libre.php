@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8" />
     <title>F1 Desktop - Informacion Equipos</title>
-    <link rel="icon" href="multimedia/imagenes/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../multimedia/imagenes/favicon.ico" type="image/x-icon">
     <meta name="author" content="Diego García" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -213,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </nav>
     </header>
     <p>
-        Estás en: <a href="../index.html">Inicio</a> >>> Juegos
+        Estás en: <a href="../index.html">Inicio</a> >>> Juegos >>> Informacion Equipos
     </p>
     <main>
         <h2>Juegos</h2>
