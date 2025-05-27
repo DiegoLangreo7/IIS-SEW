@@ -67,15 +67,5 @@ Uso
 
 Los archivos CSV y XML están disponibles para que las prácticas correspondientes los consuman.
 
----
-
-Licencia
-
-Este proyecto se distribuye bajo la licencia CC BY-NC-SA 4.0 (Atribución-NoComercial-CompartirIgual). Consulta el archivo LICENSE para más información.
-
----
-
-Autor
-
-Diego García González
-GitHub: https://github.com/DiegoLangreo7
+## Autor
+[DiegoLangreo7(https://github.com/DiegoLangreo7)
